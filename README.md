@@ -1,6 +1,6 @@
-# sitaro
+# Gilad Ratman Portfolio
 
-> A Vue.js project
+> Gilad Ratman Portfolio Site
 
 ## Build Setup
 
