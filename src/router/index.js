@@ -5,6 +5,7 @@ import Router from 'vue-router'
 import Home from '@/pages/home'
 import Topography from '@/components/topography'
 import ProjectNav from '@/components/project-nav/project-nav'
+import Project from '@/components/project'
 
 Vue.use(Router)
 
@@ -15,6 +16,11 @@ export default new Router({
       path: '/',
       name: 'Project Nav',
       component: ProjectNav
+    },
+    {
+      path: '/project/:alias',
+      name: 'Project',
+      component: Project
     },
     { 
       path: '*', 

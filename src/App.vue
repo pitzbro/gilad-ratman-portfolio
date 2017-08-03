@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <router-link to="/"><h1>Gilad Ratman</h1></router-link>
+    <h2>Four Works</h2>
     <router-view></router-view>
     <topography></topography>
   </div>

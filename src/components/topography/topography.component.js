@@ -1,24 +1,4 @@
-// GLOBALS
-
-//topography
-var topographyHeight = 1.5;
-var vectorHeight = new THREE.Vector2(topographyHeight, topographyHeight);
-
-//fog
-var fogIntensity = 2000;
-var fogColor = '0x000000';
-
-//camera
-var cameraHeight = 1500;
-var cameraTilt = 1500;
-var cameraPan = -1500;
-
-//lights
-
-var lightAmbientColor = '0x111111';
-var lightDirectionalColor = '0xffffff';
-var lightPointColor = '0xff4400';
-
+import topographies from '@/services/topography/topographies'
 
 //--------------------------------------------------
 
@@ -74,12 +54,17 @@ export default {
   data() {
     return {
 
+      //Project
+      alias: null,
+      name: null,
+
       //animation
       mainAnimation: null,
 
       //topography
       topographyHeight: 1.5,
-      vectorHeight: new THREE.Vector2(topographyHeight, topographyHeight),
+      // vectorHeight: new THREE.Vector2(topographyHeight, topographyHeight),
+      vectorHeight: null,
 
       //fog
       fogIntensity: 2000,
@@ -99,8 +84,6 @@ export default {
   },
   methods: {
     init() {
-
-      console.log('initing');
 
       container = this.$refs.topographyContainer;
 
@@ -198,9 +181,9 @@ export default {
       // var diffuseTexture2 = textureLoader.load("textures/terrain/backgrounddetailed6.jpg");
       // var detailTexture = textureLoader.load("textures/terrain/grasslight-big-nm.jpg");
 
-      var diffuseTexture1 = textureLoader.load("static/img/textures/terrain/001.jpg");
-      var diffuseTexture2 = textureLoader.load("static/img/textures/terrain/002.jpg");
-      var detailTexture = textureLoader.load("static/img/textures/terrain/003.jpg");
+      var diffuseTexture1 = textureLoader.load("/static/img/textures/terrain/001.jpg");
+      var diffuseTexture2 = textureLoader.load("/static/img/textures/terrain/002.jpg");
+      var detailTexture = textureLoader.load("/static/img/textures/terrain/003.jpg");
 
       diffuseTexture1.wrapS = diffuseTexture1.wrapT = THREE.RepeatWrapping;
       diffuseTexture2.wrapS = diffuseTexture2.wrapT = THREE.RepeatWrapping;
@@ -362,20 +345,58 @@ export default {
         renderer.render(scene, camera);
 
       }
+    },
+
+    getCurTopography() {
+      this.alias = this.$route.params.alias;
+      return this.alias? topographies.find(topography => topography.alias === this.alias) : null
+    },
+
+    setCurTopography(topography) {
+      if (topography) {
+
+        this.startAnimation();
+
+        for (var key in topography) {
+          this[key] = topography[key];
+          // console.log('changing', key, 'from', this[key], 'to', topography[key]);
+        }
+
+        console.log('this.cameraHeight', this.cameraHeight);
+
+      } else {
+
+        this.stopAnimation();
+
+      }
+
+    }
+
+  },
+
+  watch: {
+    '$route' (to, from) {
+      var curtopography = this.getCurTopography();
+      this.setCurTopography(curtopography);
+      // if (curtopography) {
+      //   this.setCurTopography(curtopography);
+      //   this.startAnimation();
+      // } else {
+      //   this.stopAnimation();
+      // }
     }
   },
-  // computed: {
-  //   ...mapGetters({
-  //     isLoggedIn: 'isLoggedIn',
-  //     user: 'user'
-  //     }
-  //   )
-  // },
-  // components: {
-  //   dropdown
-  // },
+  
   mounted() {
+    this.vectorHeight = new THREE.Vector2(this.topographyHeight, this.topographyHeight);
     this.init();
-    this.animate();
+    var curtopography = this.getCurTopography();
+    this.setCurTopography(curtopography);
+    // if (curtopography) {
+    //   this.setCurTopography(curtopography);
+    //   this.startAnimation();
+    // } else {
+    //   this.stopAnimation();
+    // }    
   }
 }

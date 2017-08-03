@@ -9,6 +9,5 @@ export default {
   },
   mounted() {
     const alias = this.$route.params.alias;
-    console.log('got this alias', alias);
   }
 }
