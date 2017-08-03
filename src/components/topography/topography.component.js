@@ -73,8 +73,28 @@ export default {
   name: 'topography',
   data() {
     return {
-      // visible: false,
-      // position: ["center", "bottom", "center", "top"]
+
+      //animation
+      mainAnimation: null,
+
+      //topography
+      topographyHeight: 1.5,
+      vectorHeight: new THREE.Vector2(topographyHeight, topographyHeight),
+
+      //fog
+      fogIntensity: 2000,
+      fogColor: '0x000000',
+
+      //camera
+      cameraHeight: 1500,
+      cameraTilt: 1500,
+      cameraPan: -1500,
+
+      //lights
+
+      lightAmbientColor: '0x111111',
+      lightDirectionalColor: '0xffffff',
+      lightPointColor: '0xff4400',
     }
   },
   methods: {
@@ -96,7 +116,7 @@ export default {
       // CAMERA
 
       camera = new THREE.PerspectiveCamera(40, SCREEN_WIDTH / SCREEN_HEIGHT, 2, 4000);
-      camera.position.set(cameraPan, cameraHeight, cameraTilt);
+      camera.position.set(this.cameraPan, this.cameraHeight, this.cameraTilt);
 
       controls = new THREE.OrbitControls(camera);
       controls.target.set(0, 0, 0);
@@ -110,7 +130,10 @@ export default {
       // SCENE (FINAL)
 
       scene = new THREE.Scene();
-      scene.fog = new THREE.Fog(0x050505, fogIntensity, 4000);
+      scene.fog = new THREE.Fog(0x050505, this.fogIntensity, 4000);
+
+      //set fog color
+      scene.fog.color.setHex(this.fogColor);
 
       // LIGHTS
 
@@ -125,6 +148,11 @@ export default {
       pointLight = new THREE.PointLight(0xff4400, 1.5);
       pointLight.position.set(0, 0, 0);
       scene.add(pointLight);
+
+      // seting lights colors
+      ambientLight.color.setHex(this.lightAmbientColor);
+      directionalLight.color.setHex(this.lightDirectionalColor);
+      pointLight.color.setHex(this.lightPointColor);
 
 
       // HEIGHT + NORMAL MAPS
@@ -143,7 +171,7 @@ export default {
       uniformsNoise = {
 
         time: { value: 1.0 },
-        scale: { value: vectorHeight },
+        scale: { value: this.vectorHeight },
         offset: { value: new THREE.Vector2(0, 0) }
 
       };
@@ -273,11 +301,20 @@ export default {
 
     animate() {
 
-      requestAnimationFrame(this.animate);
+      this.mainAnimation = requestAnimationFrame(this.animate);
 
       this.render();
       // stats.update();
 
+    },
+
+    startAnimation() {
+      this.animate();
+    },
+
+    stopAnimation() {
+      console.log('stoping animation');
+      cancelAnimationFrame(this.mainAnimation);
     },
 
     render() {
@@ -296,7 +333,7 @@ export default {
         var valNorm = (lightVal - fLow) / (fHigh - fLow);
 
         // scene.fog.color.setHSL(0.1, 0.5, lightVal);
-        scene.fog.color.setHex(fogColor);
+        scene.fog.color.setHex(this.fogColor);
 
         renderer.setClearColor(scene.fog.color);
 
