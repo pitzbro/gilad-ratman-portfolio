@@ -1,2 +1,8 @@
-@import './topography';
+@import './vars';
 @import './base';
+
+// Layout
+@import './header';
+
+// Components
+@import './topography';

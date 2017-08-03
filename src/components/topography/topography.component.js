@@ -8,7 +8,8 @@ var SCREEN_WIDTH = window.innerWidth;
 var SCREEN_HEIGHT = window.innerHeight;
 
 // var renderer, container, stats;
-var renderer, container;
+var renderer = new THREE.WebGLRenderer();
+var container;
 
 var camera, scene, controls;
 // var camera, scene;
@@ -57,6 +58,7 @@ export default {
       //Project
       alias: null,
       name: null,
+      loaded: false,
 
       //animation
       mainAnimation: null,
@@ -64,6 +66,16 @@ export default {
       //topography
       topographyHeight: 1.5,
       vectorHeight: null,
+
+      //textures
+
+      loadingManager: null,
+      terrain: null,
+      textureLoader: null,
+
+      diffuseTexture1: null,
+      diffuseTexture2: null,
+      detailTexture: null,
 
       //fog
       fogIntensity: 2000,
@@ -85,6 +97,8 @@ export default {
   },
   methods: {
     init() {
+
+      scene = null;
 
       container = this.$refs.topographyContainer;
 
@@ -170,10 +184,26 @@ export default {
 
       // TEXTURES
 
-      var loadingManager = new THREE.LoadingManager(function () {
+      var that = this;
+
+      this.loadingManager = new THREE.LoadingManager(function () {
         terrain.visible = true;
+        that.loaded = true;
+        // loadedTextures();
       });
-      var textureLoader = new THREE.TextureLoader(loadingManager);
+
+      // function loadedTextures() {
+      //   this.loaded = true;
+      //   console.log('loaded');
+      // }
+
+      this.loadingManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+
+        console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+
+      };
+
+      this.textureLoader = new THREE.TextureLoader(this.loadingManager);
 
       var specularMap = new THREE.WebGLRenderTarget(2048, 2048, pars);
       specularMap.texture.generateMipmaps = false;
@@ -182,13 +212,13 @@ export default {
       // var diffuseTexture2 = textureLoader.load("textures/terrain/backgrounddetailed6.jpg");
       // var detailTexture = textureLoader.load("textures/terrain/grasslight-big-nm.jpg");
 
-      var diffuseTexture1 = textureLoader.load("/static/img/textures/terrain/001.jpg");
-      var diffuseTexture2 = textureLoader.load("/static/img/textures/terrain/002.jpg");
-      var detailTexture = textureLoader.load("/static/img/textures/terrain/003.jpg");
+      this.diffuseTexture1 = this.textureLoader.load(`/static/img/textures/terrain/${this.alias}/001.jpg`);
+      this.diffuseTexture2 = this.textureLoader.load(`/static/img/textures/terrain/${this.alias}/002.jpg`);
+      this.detailTexture = this.textureLoader.load(`/static/img/textures/terrain/${this.alias}/003.jpg`);
 
-      diffuseTexture1.wrapS = diffuseTexture1.wrapT = THREE.RepeatWrapping;
-      diffuseTexture2.wrapS = diffuseTexture2.wrapT = THREE.RepeatWrapping;
-      detailTexture.wrapS = detailTexture.wrapT = THREE.RepeatWrapping;
+      this.diffuseTexture1.wrapS = this.diffuseTexture1.wrapT = THREE.RepeatWrapping;
+      this.diffuseTexture2.wrapS = this.diffuseTexture2.wrapT = THREE.RepeatWrapping;
+      this.detailTexture.wrapS = this.detailTexture.wrapT = THREE.RepeatWrapping;
       specularMap.texture.wrapS = specularMap.texture.wrapT = THREE.RepeatWrapping;
 
       // TERRAIN SHADER
@@ -202,10 +232,10 @@ export default {
 
       uniformsTerrain['tDisplacement'].value = heightMap.texture;
 
-      uniformsTerrain['tDiffuse1'].value = diffuseTexture1;
-      uniformsTerrain['tDiffuse2'].value = diffuseTexture2;
+      uniformsTerrain['tDiffuse1'].value = this.diffuseTexture1;
+      uniformsTerrain['tDiffuse2'].value = this.diffuseTexture2;
       uniformsTerrain['tSpecular'].value = specularMap.texture;
-      uniformsTerrain['tDetail'].value = detailTexture;
+      uniformsTerrain['tDetail'].value = this.detailTexture;
 
       uniformsTerrain['enableDiffuse1'].value = true;
       uniformsTerrain['enableDiffuse2'].value = true;
@@ -262,7 +292,7 @@ export default {
 
       // RENDERER
 
-      renderer = new THREE.WebGLRenderer();
+      // renderer = new THREE.WebGLRenderer();
       renderer.setClearColor(scene.fog.color);
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -347,11 +377,11 @@ export default {
     setCurTopography(topography) {
       if (topography) {
 
-
         for (var key in topography) {
           this[key] = topography[key];
-          // console.log('changing', key, 'from', this[key], 'to', topography[key]);
         }
+
+        this.init();
 
         //Set Topography
         this.vectorHeight.set(this.topographyHeight, this.topographyHeight);
@@ -359,6 +389,15 @@ export default {
         //Fog
         scene.fog.near = this.fogIntensity;
         scene.fog.color.setHex(this.fogColor);
+
+
+
+        //Textures
+        this.diffuseTexture1 = this.textureLoader.load("/static/img/textures/terrain/001/001.jpg");
+        this.diffuseTexture2 = this.textureLoader.load("/static/img/textures/terrain/001/002.jpg");
+        this.detailTexture = this.textureLoader.load("/static/img/textures/terrain/001/003.jpg");
+
+        terrain.material.needsUpdate = true;
 
         //Set Camera Position
         camera.position.set(this.cameraPan, this.cameraHeight, this.cameraTilt);
@@ -371,9 +410,8 @@ export default {
         this.startAnimation();
 
       } else {
-
+        this.loaded = false;
         this.stopAnimation();
-
       }
 
     }
@@ -393,7 +431,6 @@ export default {
     this.directionalLight = new THREE.DirectionalLight(0xffffff, 1.15);
     this.pointLight = new THREE.PointLight(0xff4400, 1.5);
 
-    this.init();
 
     var curtopography = this.getCurTopography();
     this.setCurTopography(curtopography);   
