@@ -63,7 +63,6 @@ export default {
 
       //topography
       topographyHeight: 1.5,
-      // vectorHeight: new THREE.Vector2(topographyHeight, topographyHeight),
       vectorHeight: null,
 
       //fog
@@ -76,7 +75,9 @@ export default {
       cameraPan: -1500,
 
       //lights
-
+      ambientLight: null,
+      directionalLight: null,
+      pointLight: null,
       lightAmbientColor: '0x111111',
       lightDirectionalColor: '0xffffff',
       lightPointColor: '0xff4400',
@@ -120,22 +121,22 @@ export default {
 
       // LIGHTS
 
-      var ambientLight = new THREE.AmbientLight(0x111111);
-      scene.add(ambientLight);
+      // var ambientLight = new THREE.AmbientLight(0x111111);
+      scene.add(this.ambientLight);
       // scene.add(new THREE.AmbientLight(lightAmbientColor));
 
-      directionalLight = new THREE.DirectionalLight(0xffffff, 1.15);
-      directionalLight.position.set(500, 2000, 0);
-      scene.add(directionalLight);
+      // directionalLight = new THREE.DirectionalLight(0xffffff, 1.15);
+      this.directionalLight.position.set(500, 2000, 0);
+      scene.add(this.directionalLight);
 
-      pointLight = new THREE.PointLight(0xff4400, 1.5);
-      pointLight.position.set(0, 0, 0);
-      scene.add(pointLight);
+      // pointLight = new THREE.PointLight(0xff4400, 1.5);
+      this.pointLight.position.set(0, 0, 0);
+      scene.add(this.pointLight);
 
       // seting lights colors
-      ambientLight.color.setHex(this.lightAmbientColor);
-      directionalLight.color.setHex(this.lightDirectionalColor);
-      pointLight.color.setHex(this.lightPointColor);
+      // this.ambientLight.color.setHex(this.lightAmbientColor);
+      // this.directionalLight.color.setHex(this.lightDirectionalColor);
+      // this.pointLight.color.setHex(this.lightPointColor);
 
 
       // HEIGHT + NORMAL MAPS
@@ -282,21 +283,12 @@ export default {
 
     },
 
-    animate() {
-
-      this.mainAnimation = requestAnimationFrame(this.animate);
-
-      this.render();
-      // stats.update();
-
-    },
-
     startAnimation() {
-      this.animate();
+      this.mainAnimation = requestAnimationFrame(this.startAnimation);
+      this.render();
     },
 
     stopAnimation() {
-      console.log('stoping animation');
       cancelAnimationFrame(this.mainAnimation);
     },
 
@@ -320,8 +312,8 @@ export default {
 
         renderer.setClearColor(scene.fog.color);
 
-        directionalLight.intensity = THREE.Math.mapLinear(valNorm, 0, 1, 0.1, 1.15);
-        pointLight.intensity = THREE.Math.mapLinear(valNorm, 0, 1, 0.9, 1.5);
+        this.directionalLight.intensity = THREE.Math.mapLinear(valNorm, 0, 1, 0.1, 1.15);
+        this.pointLight.intensity = THREE.Math.mapLinear(valNorm, 0, 1, 0.9, 1.5);
 
         uniformsTerrain['uNormalScale'].value = THREE.Math.mapLinear(valNorm, 0, 1, 0.6, 3.5);
 
@@ -355,14 +347,28 @@ export default {
     setCurTopography(topography) {
       if (topography) {
 
-        this.startAnimation();
 
         for (var key in topography) {
           this[key] = topography[key];
           // console.log('changing', key, 'from', this[key], 'to', topography[key]);
         }
 
-        console.log('this.cameraHeight', this.cameraHeight);
+        //Set Topography
+        this.vectorHeight.set(this.topographyHeight, this.topographyHeight);
+
+        //Fog
+        scene.fog.near = this.fogIntensity;
+        scene.fog.color.setHex(this.fogColor);
+
+        //Set Camera Position
+        camera.position.set(this.cameraPan, this.cameraHeight, this.cameraTilt);
+
+        //Set Lights Color
+        this.ambientLight.color.setHex(this.lightAmbientColor);
+        this.directionalLight.color.setHex(this.lightDirectionalColor);
+        this.pointLight.color.setHex(this.lightPointColor);
+
+        this.startAnimation();
 
       } else {
 
@@ -378,25 +384,18 @@ export default {
     '$route' (to, from) {
       var curtopography = this.getCurTopography();
       this.setCurTopography(curtopography);
-      // if (curtopography) {
-      //   this.setCurTopography(curtopography);
-      //   this.startAnimation();
-      // } else {
-      //   this.stopAnimation();
-      // }
     }
   },
   
   mounted() {
     this.vectorHeight = new THREE.Vector2(this.topographyHeight, this.topographyHeight);
+    this.ambientLight = new THREE.AmbientLight(0x111111);
+    this.directionalLight = new THREE.DirectionalLight(0xffffff, 1.15);
+    this.pointLight = new THREE.PointLight(0xff4400, 1.5);
+
     this.init();
+
     var curtopography = this.getCurTopography();
-    this.setCurTopography(curtopography);
-    // if (curtopography) {
-    //   this.setCurTopography(curtopography);
-    //   this.startAnimation();
-    // } else {
-    //   this.stopAnimation();
-    // }    
+    this.setCurTopography(curtopography);   
   }
 }
