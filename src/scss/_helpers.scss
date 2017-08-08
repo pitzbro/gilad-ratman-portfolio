@@ -1,0 +1,21 @@
+// Lists
+
+.clean-list {
+    list-style: none;
+}
+
+.link-list {
+    .link-list-item {
+        cursor: pointer;
+    }
+}
+
+// Flex
+
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}

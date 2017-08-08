@@ -20,10 +20,10 @@ pre {
 
 #info { position: absolute; top: 10px; width: 100%; }
 
-a { color: #fb0; }
+a { color: $mainColor; }
 
 #footer { position: absolute; bottom: 10px; width: 100%; }
-.h { color: #fb0 }
+.h { color: $mainColor }
 .c { display: inline; margin-left: 1em }
 
 /*----Asi changes---*/
