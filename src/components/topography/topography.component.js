@@ -64,11 +64,12 @@ export default {
       mainAnimation: null,
 
       //topography
-      topographyHeight: 1.5,
+      topographyIntensity: 1.5,
       vectorHeight: null,
+      topographyHeight: 375,
 
       //textures
-
+      texturesRepeat: 5,
       loadingManager: null,
       terrain: null,
       textureLoader: null,
@@ -189,13 +190,7 @@ export default {
       this.loadingManager = new THREE.LoadingManager(function () {
         terrain.visible = true;
         that.loaded = true;
-        // loadedTextures();
       });
-
-      // function loadedTextures() {
-      //   this.loaded = true;
-      //   console.log('loaded');
-      // }
 
       this.loadingManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
 
@@ -207,10 +202,6 @@ export default {
 
       var specularMap = new THREE.WebGLRenderTarget(2048, 2048, pars);
       specularMap.texture.generateMipmaps = false;
-
-      // var diffuseTexture1 = textureLoader.load("textures/terrain/grasslight-big.jpg");
-      // var diffuseTexture2 = textureLoader.load("textures/terrain/backgrounddetailed6.jpg");
-      // var detailTexture = textureLoader.load("textures/terrain/grasslight-big-nm.jpg");
 
       this.diffuseTexture1 = this.textureLoader.load(`/static/img/textures/terrain/${this.alias}/001.jpg`);
       this.diffuseTexture2 = this.textureLoader.load(`/static/img/textures/terrain/${this.alias}/002.jpg`);
@@ -384,15 +375,15 @@ export default {
         this.init();
 
         //Set Topography
-        this.vectorHeight.set(this.topographyHeight, this.topographyHeight);
+        this.vectorHeight.set(this.topographyIntensity, this.topographyIntensity);
+        uniformsTerrain['uDisplacementScale'].value = this.topographyHeight;
 
         //Fog
         scene.fog.near = this.fogIntensity;
         scene.fog.color.setHex(this.fogColor);
 
-
-
         //Textures
+        uniformsTerrain['uRepeatOverlay'].value.set(this.texturesRepeat, this.texturesRepeat);
         this.diffuseTexture1 = this.textureLoader.load("/static/img/textures/terrain/001/001.jpg");
         this.diffuseTexture2 = this.textureLoader.load("/static/img/textures/terrain/001/002.jpg");
         this.detailTexture = this.textureLoader.load("/static/img/textures/terrain/001/003.jpg");
@@ -426,7 +417,7 @@ export default {
   },
   
   mounted() {
-    this.vectorHeight = new THREE.Vector2(this.topographyHeight, this.topographyHeight);
+    this.vectorHeight = new THREE.Vector2(this.topographyIntensity, this.topographyIntensity);
     this.ambientLight = new THREE.AmbientLight(0x111111);
     this.directionalLight = new THREE.DirectionalLight(0xffffff, 1.15);
     this.pointLight = new THREE.PointLight(0xff4400, 1.5);

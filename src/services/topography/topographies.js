@@ -6,7 +6,7 @@ const topographies = [
         // GLOBALS
 
         //topography
-        topographyHeight: 2,
+        topographyIntensity: 2,
 
         //fog
         fogIntensity: 1500,
@@ -29,7 +29,7 @@ const topographies = [
         alias: '002',
 
         //topography
-        topographyHeight: 1.5,
+        topographyIntensity: 1.5,
 
         //fog
         fogIntensity: 1000,
@@ -52,7 +52,7 @@ const topographies = [
         alias: '003',
 
         //topography
-        topographyHeight: 1.3,
+        topographyIntensity: 1.3,
 
         //fog
         fogIntensity: 1000,
@@ -73,24 +73,29 @@ const topographies = [
     {
         name: 'Project 4',
         alias: '004',
+        // GLOBALS
 
         //topography
-        topographyHeight: 0.7,
+        topographyHeight: 725,
+        topographyIntensity: 1.4,
+
+        //textures
+        texturesRepeat: 14,
 
         //fog
-        fogIntensity: 1770,
-        fogColor: 0x000000,
+        fogIntensity: 720,
+        fogColor: 0xffffff,
 
         //camera
-        cameraHeight: 1210,
-        cameraTilt: 1240,
-        cameraPan: -1170,
+        cameraHeight: 1130,
+        cameraTilt: 1000,
+        cameraPan: -2000,
 
         //lights
 
-        lightAmbientColor: 0xff9b9b,
-        lightDirectionalColor: 0x004000,
-        lightPointColor: 0x408080
+        lightAmbientColor: 0x111111,
+        lightDirectionalColor: 0xffffff,
+        lightPointColor: 0xc0c0c0
     },    
 ];
 
