@@ -1,5 +1,10 @@
+import objectLink from '@/components/object/object';
+
 export default {
   name: 'project',
+  components: {
+    objectLink
+  },
   data() {
     return {
 

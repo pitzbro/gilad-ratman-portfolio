@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 //Components
-import Home from '@/pages/home'
 import Topography from '@/components/topography'
 import ProjectNav from '@/components/project-nav/project-nav'
 import Project from '@/components/project'
@@ -24,7 +23,11 @@ export default new Router({
     },
     { 
       path: '*', 
-      redirect: { name: 'Project Nav' } 
+      redirect: { 
+        path: '/',
+        name: 'Project Nav',
+        component: ProjectNav
+    } 
     }
   ]
 })
