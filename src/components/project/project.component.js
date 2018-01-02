@@ -1,9 +1,9 @@
-import objectLink from '@/components/object/object';
+import menuObject from '@/components/object/object';
 
 export default {
   name: 'project',
   components: {
-    objectLink
+    menuObject
   },
   data() {
     return {
