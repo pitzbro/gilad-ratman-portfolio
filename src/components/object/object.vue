@@ -27,7 +27,7 @@
       }
     },
     mounted() {
-      setInterval(this.animateObj, 50);
+      setInterval(this.animateObj, 150);
     }
 }
 </script>

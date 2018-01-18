@@ -1,101 +1,117 @@
 const topographies = [
     {
-        name: 'Project 1',
-        alias: '001',
+        name: 'The 588 Project',
+        alias: '588',
 
         // GLOBALS
-
+        
         //topography
-        topographyIntensity: 2,
-
+        topographyHeight: 875,
+        topographyIntensity: 1.2,
+        
+        //textures
+        texturesRepeat: 6,
+        
         //fog
-        fogIntensity: 1500,
+        fogIntensity: 2000,
         fogColor: 0x000000,
-
+        
         //camera
-        cameraHeight: 240,
-        cameraTilt: 630,
-        cameraPan: -840,
-
+        cameraHeight: 840,
+        cameraTilt: 1500,
+        cameraPan: -1500,
+        
         //lights
-
-        lightAmbientColor: 0x800000,
-        lightDirectionalColor: 0x004000,
-        lightPointColor: 0x408080
+        
+        lightAmbientColor: 0xffffff,
+        lightDirectionalColor: 0xffffff,
+        lightPointColor: 0xffffff 
+        
     },
 
     {
-        name: 'Project 2',
-        alias: '002',
+        name: 'Multipillory',
+        alias: 'multipillory',
+
+        // GLOBALS
+        
+        //topography
+        topographyHeight: 450,
+        topographyIntensity: 1.5,
+        
+        //textures
+        texturesRepeat: 6,
+        
+        //fog
+        fogIntensity: 2470,
+        fogColor: 0xc1987e,
+        
+        //camera
+        cameraHeight: 1500,
+        cameraTilt: 1500,
+        cameraPan: -1500,
+        
+        //lights
+        
+        lightAmbientColor: 0xffffff,
+        lightDirectionalColor: 0xffffff,
+        lightPointColor: 0x527238
+    },
+
+    {
+        name: '5 Bands From Romania',
+        alias: 'romania',
 
         //topography
+        topographyHeight: 375,
         topographyIntensity: 1.5,
 
+        //textures
+        texturesRepeat: 6,
+
         //fog
-        fogIntensity: 1000,
-        fogColor: 0x004000,
+        fogIntensity: 2050,
+        fogColor: 0x291f1d,
 
         //camera
-        cameraHeight: 2170,
-        cameraTilt: 0,
-        cameraPan: 0,
+        cameraHeight: 1500,
+        cameraTilt: 1500,
+        cameraPan: -1070,
 
         //lights
 
-        lightAmbientColor: 0x111111,
+        lightAmbientColor: 0xffffff,
         lightDirectionalColor: 0xffffff,
-        lightPointColor: 0xff4400
+        lightPointColor: 0xffffff
     },
 
     {
-        name: 'Project 3',
-        alias: '003',
+        name: 'Swarm',
+        alias: 'swarm',
 
-        //topography
-        topographyIntensity: 1.3,
-
-        //fog
-        fogIntensity: 1000,
-        fogColor: 0x000000,
-
-        //camera
-        cameraHeight: 0,
-        cameraTilt: 3000,
-        cameraPan: 0,
-
-        //lights
-
-        lightAmbientColor: 0x800000,
-        lightDirectionalColor: 0x0000a0,
-        lightPointColor: 0x1f45e0
-    },
-
-    {
-        name: 'Project 4',
-        alias: '004',
         // GLOBALS
 
         //topography
-        topographyHeight: 725,
-        topographyIntensity: 1.4,
+        topographyHeight: 325,
+        topographyIntensity: 1.8,
 
         //textures
-        texturesRepeat: 14,
+        texturesRepeat: 6,
 
         //fog
-        fogIntensity: 720,
-        fogColor: 0xffffff,
+        fogIntensity: 2100,
+        fogColor: 0x1f1b20,
 
         //camera
-        cameraHeight: 1130,
-        cameraTilt: 1000,
-        cameraPan: -2000,
+        cameraHeight: 1590,
+        cameraTilt: 1190,
+        cameraPan: -1840,
 
         //lights
 
-        lightAmbientColor: 0x111111,
+        lightAmbientColor: 0xf5f6ff,
         lightDirectionalColor: 0xffffff,
-        lightPointColor: 0xc0c0c0
+        lightPointColor: 0x838383
     },    
 ];
 
