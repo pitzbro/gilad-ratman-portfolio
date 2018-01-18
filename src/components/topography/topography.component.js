@@ -205,7 +205,7 @@ export default {
 
       this.diffuseTexture1 = this.textureLoader.load(`/static/img/textures/terrain/${this.alias}/001.jpg`);
       this.diffuseTexture2 = this.textureLoader.load(`/static/img/textures/terrain/${this.alias}/002.jpg`);
-      this.detailTexture = this.textureLoader.load(`/static/img/textures/terrain/${this.alias}/003.jpg`);
+      this.detailTexture = this.textureLoader.load(`/static/img/white.gif`);
 
       this.diffuseTexture1.wrapS = this.diffuseTexture1.wrapT = THREE.RepeatWrapping;
       this.diffuseTexture2.wrapS = this.diffuseTexture2.wrapT = THREE.RepeatWrapping;
@@ -384,9 +384,9 @@ export default {
 
         //Textures
         uniformsTerrain['uRepeatOverlay'].value.set(this.texturesRepeat, this.texturesRepeat);
-        this.diffuseTexture1 = this.textureLoader.load("/static/img/textures/terrain/001/001.jpg");
-        this.diffuseTexture2 = this.textureLoader.load("/static/img/textures/terrain/001/002.jpg");
-        this.detailTexture = this.textureLoader.load("/static/img/textures/terrain/001/003.jpg");
+        this.diffuseTexture1 = this.textureLoader.load(`/static/img/textures/terrain/${this.alias}/001.jpg`);
+        this.diffuseTexture2 = this.textureLoader.load(`/static/img/textures/terrain/${this.alias}/002.jpg`);
+        this.detailTexture = this.textureLoader.load(`/static/img/white.gif`);
 
         terrain.material.needsUpdate = true;
 
