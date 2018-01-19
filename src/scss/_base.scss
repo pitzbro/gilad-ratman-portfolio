@@ -1,13 +1,22 @@
-body {
+html {
+    font-family: $mainFont;
+    line-height: 1;
+    font-size:1em;
     background: #000;
     color: #999;
-    padding: 0;
-    margin: $headerHeight 0 0 0;
+}
+
+body {
+    margin: 0;
     overflow: hidden;
-    font-family: georgia;
-    font-size:1em;
-    text-align: center;
-    line-height: 1;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $titleFont;
 }
 
 h2 {
@@ -20,7 +29,10 @@ pre {
 
 #info { position: absolute; top: 10px; width: 100%; }
 
-a { color: $mainColor; }
+a { 
+    color: $mainColor; 
+    text-decoration: none;
+}
 
 #footer { position: absolute; bottom: 10px; width: 100%; }
 .h { color: $mainColor }

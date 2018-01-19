@@ -3,56 +3,70 @@ const topographies = [
         name: 'The 588 Project',
         alias: '588',
 
+        menuObjects: [
+            { type: 'text', src: '/static/test.html' },
+            { type: 'text', src: '/static/test.html' },
+            { type: 'text', src: '/static/test.html' }
+        ],
+
         // GLOBALS
-        
+
         //topography
         topographyHeight: 875,
         topographyIntensity: 1.2,
-        
+
         //textures
         texturesRepeat: 6,
-        
+
         //fog
         fogIntensity: 2000,
         fogColor: 0x000000,
-        
+
         //camera
         cameraHeight: 840,
         cameraTilt: 1500,
         cameraPan: -1500,
-        
+
         //lights
-        
+
         lightAmbientColor: 0xffffff,
         lightDirectionalColor: 0xffffff,
-        lightPointColor: 0xffffff 
-        
+        lightPointColor: 0xffffff
+
     },
 
     {
         name: 'Multipillory',
         alias: 'multipillory',
 
+        menuObjects: [
+            { type: 'text', src: '/static/test.html' },
+            { type: 'text', src: '/static/test.html' },
+            { type: 'text', src: '/static/test.html' },
+            { type: 'text', src: '/static/test.html' },
+            { type: 'text', src: '/static/test.html' }
+        ],
+
         // GLOBALS
-        
+
         //topography
         topographyHeight: 450,
         topographyIntensity: 1.5,
-        
+
         //textures
         texturesRepeat: 6,
-        
+
         //fog
         fogIntensity: 2470,
         fogColor: 0xc1987e,
-        
+
         //camera
         cameraHeight: 1500,
         cameraTilt: 1500,
         cameraPan: -1500,
-        
+
         //lights
-        
+
         lightAmbientColor: 0xffffff,
         lightDirectionalColor: 0xffffff,
         lightPointColor: 0x527238
@@ -61,6 +75,13 @@ const topographies = [
     {
         name: '5 Bands From Romania',
         alias: 'romania',
+
+        menuObjects: [
+            { type: 'text', src: '/static/test.html' },
+            { type: 'text', src: '/static/test.html' },
+            { type: 'text', src: '/static/test.html' },
+            { type: 'text', src: '/static/test.html' }
+        ],
 
         //topography
         topographyHeight: 375,
@@ -89,6 +110,12 @@ const topographies = [
         name: 'Swarm',
         alias: 'swarm',
 
+        menuObjects: [
+            { type: 'text', src: '/static/test.html' },
+            { type: 'text', src: '/static/test.html' },
+            { type: 'text', src: '/static/test.html' }
+        ],
+
         // GLOBALS
 
         //topography
@@ -112,7 +139,13 @@ const topographies = [
         lightAmbientColor: 0xf5f6ff,
         lightDirectionalColor: 0xffffff,
         lightPointColor: 0x838383
-    },    
+    },
 ];
 
-export default topographies ;
+function getCurTopography(alias) {
+    return alias ? topographies.find(topography => topography.alias === alias) : null
+}
+
+export default topographies;
+
+export { topographies, getCurTopography };

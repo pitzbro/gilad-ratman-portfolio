@@ -1,4 +1,4 @@
-import topographies from '@/services/topography/topographies'
+import { getCurTopography } from '@/services/topography/topographies';
 
 //--------------------------------------------------
 
@@ -52,11 +52,11 @@ function onWindowResize(event) {
 
 export default {
   name: 'topography',
+  props: ['project'],
   data() {
     return {
 
       //Project
-      alias: null,
       name: null,
       loaded: false,
 
@@ -203,8 +203,8 @@ export default {
       var specularMap = new THREE.WebGLRenderTarget(2048, 2048, pars);
       specularMap.texture.generateMipmaps = false;
 
-      this.diffuseTexture1 = this.textureLoader.load(`/static/img/textures/terrain/${this.alias}/001.jpg`);
-      this.diffuseTexture2 = this.textureLoader.load(`/static/img/textures/terrain/${this.alias}/002.jpg`);
+      this.diffuseTexture1 = this.textureLoader.load(`/static/img/textures/terrain/${this.project}/001.jpg`);
+      this.diffuseTexture2 = this.textureLoader.load(`/static/img/textures/terrain/${this.project}/002.jpg`);
       this.detailTexture = this.textureLoader.load(`/static/img/white.gif`);
 
       this.diffuseTexture1.wrapS = this.diffuseTexture1.wrapT = THREE.RepeatWrapping;
@@ -360,11 +360,6 @@ export default {
       }
     },
 
-    getCurTopography() {
-      this.alias = this.$route.params.alias;
-      return this.alias? topographies.find(topography => topography.alias === this.alias) : null
-    },
-
     setCurTopography(topography) {
       if (topography) {
 
@@ -384,8 +379,8 @@ export default {
 
         //Textures
         uniformsTerrain['uRepeatOverlay'].value.set(this.texturesRepeat, this.texturesRepeat);
-        this.diffuseTexture1 = this.textureLoader.load(`/static/img/textures/terrain/${this.alias}/001.jpg`);
-        this.diffuseTexture2 = this.textureLoader.load(`/static/img/textures/terrain/${this.alias}/002.jpg`);
+        this.diffuseTexture1 = this.textureLoader.load(`/static/img/textures/terrain/${this.project}/001.jpg`);
+        this.diffuseTexture2 = this.textureLoader.load(`/static/img/textures/terrain/${this.project}/002.jpg`);
         this.detailTexture = this.textureLoader.load(`/static/img/white.gif`);
 
         terrain.material.needsUpdate = true;
@@ -410,20 +405,29 @@ export default {
   },
 
   watch: {
-    '$route' (to, from) {
-      var curtopography = this.getCurTopography();
+    // '$route' (to, from) {
+    //   var curtopography = getCurTopography(this.project);
+    //   this.setCurTopography(curtopography);
+    // },
+    project (newProject, oldProject) {
+      console.log('got new project', newProject);
+      var curtopography = getCurTopography(this.project);
       this.setCurTopography(curtopography);
     }
+
   },
-  
+
   mounted() {
+
+    
     this.vectorHeight = new THREE.Vector2(this.topographyIntensity, this.topographyIntensity);
     this.ambientLight = new THREE.AmbientLight(0x111111);
     this.directionalLight = new THREE.DirectionalLight(0xffffff, 1.15);
     this.pointLight = new THREE.PointLight(0xff4400, 1.5);
-
-
-    var curtopography = this.getCurTopography();
+    
+    console.log('GOT PROJECT :', this.project)
+    
+    var curtopography = getCurTopography(this.project);
     this.setCurTopography(curtopography);   
   }
 }
