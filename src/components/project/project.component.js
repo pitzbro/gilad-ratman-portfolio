@@ -1,4 +1,5 @@
 import menuObject from '@/components/object/object';
+import { getCurObjects } from '@/services/topography/topographies';
 
 export default {
   name: 'project',
@@ -7,12 +8,14 @@ export default {
   },
   data() {
     return {
-
+      alias: null,
+      menuObjects: null
     }
   },
   methods: {
   },
   mounted() {
-    const alias = this.$route.params.alias;
+    this.alias = this.$route.params.alias;
+    this.menuObjects = getCurObjects(this.alias);
   }
 }

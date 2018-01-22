@@ -405,12 +405,7 @@ export default {
   },
 
   watch: {
-    // '$route' (to, from) {
-    //   var curtopography = getCurTopography(this.project);
-    //   this.setCurTopography(curtopography);
-    // },
     project (newProject, oldProject) {
-      console.log('got new project', newProject);
       var curtopography = getCurTopography(this.project);
       this.setCurTopography(curtopography);
     }
@@ -424,10 +419,6 @@ export default {
     this.ambientLight = new THREE.AmbientLight(0x111111);
     this.directionalLight = new THREE.DirectionalLight(0xffffff, 1.15);
     this.pointLight = new THREE.PointLight(0xff4400, 1.5);
-    
-    console.log('GOT PROJECT :', this.project)
-    
-    var curtopography = getCurTopography(this.project);
-    this.setCurTopography(curtopography);   
+      
   }
 }

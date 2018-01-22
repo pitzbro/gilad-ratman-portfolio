@@ -146,6 +146,11 @@ function getCurTopography(alias) {
     return alias ? topographies.find(topography => topography.alias === alias) : null
 }
 
+function getCurObjects(alias) {
+    var topography = alias ? topographies.find(topography => topography.alias === alias) : null
+    return topography ? topography.menuObjects : null
+}
+
 export default topographies;
 
-export { topographies, getCurTopography };
+export { topographies, getCurTopography, getCurObjects };
