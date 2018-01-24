@@ -9,12 +9,17 @@
 <script lang="js">
 
 
+  // Bus
+  import { bus } from '@/bus.js';
+
+
   export default  {
     name: 'gallery',
     data() {
       return {
         alias: null,
         num: null,
+        item:null,
         galleryContent: null
       }
     },
@@ -24,15 +29,25 @@
           .then( response => response.text())
             .then( text => this.galleryContent = text);
       },
-      backToProject() {
-        router.push(`/project/${alias}`);
+      stopAnimation() {
+        setTimeout(() => {
+          bus.$emit('stopAnimation');
+        }, 1000);
       }
     },
     mounted() {
       this.alias = this.$route.params.alias;
       this.num = this.$route.params.num;
-      console.log('alias:', this.alias, 'num:', this.num)
+
+      // this.item = getGalleryItem(this.alias, this.num)
+
+
       this.getContents()
+      bus.$emit('stopAnimation');
+      bus.$on('loadedAnimation', this.stopAnimation)
+    },
+    beforeDestroy() {
+      bus.$emit('startAnimation');
     }
 }
 </script>

@@ -40,8 +40,8 @@ const topographies = [
         alias: 'multipillory',
 
         menuObjects: [
-            { type: 'text', src: '/static/test.html' },
-            { type: 'text', src: '/static/test.html' },
+            { type: 'video', id: 132812386 },
+            { type: 'text', src: 'content.html' },
             { type: 'text', src: '/static/test.html' },
             { type: 'text', src: '/static/test.html' },
             { type: 'text', src: '/static/test.html' }

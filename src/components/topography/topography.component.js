@@ -1,5 +1,8 @@
 import { getCurTopography } from '@/services/topography/topographies';
 
+// Bus
+import { bus } from '@/bus.js';
+
 //--------------------------------------------------
 
 if (!Detector.webgl) Detector.addGetWebGLMessage();
@@ -61,6 +64,7 @@ export default {
       loaded: false,
 
       //animation
+      animate: true,
       mainAnimation: null,
 
       //topography
@@ -190,6 +194,8 @@ export default {
       this.loadingManager = new THREE.LoadingManager(function () {
         terrain.visible = true;
         that.loaded = true;
+        bus.$emit('loadedAnimation');
+        console.log('loadedAnimation');
       });
 
       this.loadingManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
@@ -413,12 +419,14 @@ export default {
   },
 
   mounted() {
-
     
     this.vectorHeight = new THREE.Vector2(this.topographyIntensity, this.topographyIntensity);
     this.ambientLight = new THREE.AmbientLight(0x111111);
     this.directionalLight = new THREE.DirectionalLight(0xffffff, 1.15);
     this.pointLight = new THREE.PointLight(0xff4400, 1.5);
+
+    bus.$on('stopAnimation', this.stopAnimation) 
+    bus.$on('startAnimation', this.startAnimation) 
       
   }
 }
