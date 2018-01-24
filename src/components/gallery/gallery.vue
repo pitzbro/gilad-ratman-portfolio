@@ -1,6 +1,8 @@
 <template lang="html">
 
-  <h1>THIS IS THE GALLERY MODULE</h1>
+  <router-link tag="section" class="modal-bg" :to="`/project/${alias}`">
+    <div class="modal" @click.stop="" v-if="galleryContent" v-html="galleryContent"></div>
+  </router-link>
 
 </template>
 
@@ -12,24 +14,25 @@
     data() {
       return {
         alias: null,
-        num: null
+        num: null,
+        galleryContent: null
       }
     },
-    // methods: {
-    //   animateObj() {
-    //     this.srcNum = (this.srcNum >= 25)? 1 : this.srcNum + 1;
-    //     if (this.srcNum >= 25) {
-    //       console.log('big')
-    //     } else {
-    //       console.log('small')
-
-    //     }
-    //   }
-    // },
+    methods: {
+      getContents() {
+        fetch(`/static/projects/${this.alias}/gallery/${this.num}/content.html`)
+          .then( response => response.text())
+            .then( text => this.galleryContent = text);
+      },
+      backToProject() {
+        router.push(`/project/${alias}`);
+      }
+    },
     mounted() {
       this.alias = this.$route.params.alias;
       this.num = this.$route.params.num;
       console.log('alias:', this.alias, 'num:', this.num)
+      this.getContents()
     }
 }
 </script>
