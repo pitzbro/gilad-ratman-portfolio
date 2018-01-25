@@ -8,13 +8,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     .modal {
-        width: 70%;
-        max-height: 50%;
-        background: #616771;
-        color: #fff;
-        padding: 10px 50px;
-        overflow-y: scroll;
-        border-radius: 5px;
+        &.text {
+            width: 70%;
+            max-height: 50%;
+            background: #616771;
+            color: #fff;
+            padding: 10px 50px;
+            overflow-y: scroll;
+            border-radius: 5px;
+        }
     }
 }

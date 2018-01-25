@@ -151,6 +151,11 @@ function getCurObjects(alias) {
     return topography ? topography.menuObjects : null
 }
 
+function getGalleryItem(alias, num) {
+    var topography = alias ? topographies.find(topography => topography.alias === alias) : null
+    return (topography && num) ? topography.menuObjects[num] : null
+}
+
 export default topographies;
 
-export { topographies, getCurTopography, getCurObjects };
+export { topographies, getCurTopography, getCurObjects, getGalleryItem };
