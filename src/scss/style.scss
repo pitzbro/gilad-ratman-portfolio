@@ -1,6 +1,7 @@
 @import './vars';
 @import './base';
 @import './helpers';
+@import './transitions';
 
 // Layout
 @import './header';
@@ -8,4 +9,5 @@
 // Components
 @import './topography';
 @import './project-menu';
+@import './project';
 @import './modal';

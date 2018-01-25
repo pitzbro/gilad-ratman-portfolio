@@ -1,14 +1,28 @@
 <template>
   <div id="app">
-    <header>
-      <router-link to="/"><h1>Gilad Ratman</h1></router-link>
-      <h2 v-for="(topography, index) in topographies" v-if="!project || topography.alias === project">
+
+    <router-link to="/" v-if="alias">home</router-link>
+    <header v-if="!alias">
+      <router-link to="/">
+        <h1>Gilad Ratman</h1>
+      </router-link>
+      <span v-for="(topography, index) in topographies">
         {{topography.name}}
-        <span v-if="!project && index < topographies.length - 1"> | </span>
-      </h2>
+        <span v-if="!alias && index < topographies.length - 1"> | </span>
+      </span>
     </header>
+
+    <header v-else>
+      <h1>{{alias}}</h1>
+      <span>{{subtitle}}</span>
+    </header>
+
     <router-view></router-view>
-    <topography v-show="project" :project="project"></topography>
+
+    
+    <topography v-show="isLoaded" :project="alias" @animationLoaded="animationLoaded"></topography>
+
+
   </div>
 </template>
 
@@ -18,6 +32,7 @@
 import Topography from './components/topography';
 // Topographies
 import topographies from '@/services/topography/topographies'
+import { getSubtitle } from '@/services/topography/topographies';
 
 export default {
 
@@ -30,22 +45,33 @@ export default {
   data() {
     return {
       topographies,
-      project: null
+      isLoaded: false,
+      alias: null,
+      subtitle: null
     }
   },
   methods: {
-    // showTopography() {
-    //   console.log('loaded');
-    // }
+    animationLoaded(isLoaded) {
+      this.isLoaded = isLoaded;
+    }
   },
+
   watch: {
     '$route' (to, from) {
-      this.project = this.$route.params.alias;
+      this.alias = this.$route.params.alias;
+      if (this.alias) {
+        this.subtitle = getSubtitle(this.alias)
+      } else {
+        this.isLoaded = false;
+      }
     }
   },
   
   mounted() {
-    this.project = this.$route.params.alias;
+    this.alias = this.$route.params.alias;
+      if (this.alias) {
+        this.subtitle = getSubtitle(this.alias)
+      }
   }
 }
 </script>

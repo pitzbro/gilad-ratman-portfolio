@@ -38,9 +38,10 @@ const topographies = [
     {
         name: 'Multipillory',
         alias: 'multipillory',
+        subtitle: 'testing some subtitle for the future',
 
         menuObjects: [
-            { type: 'video', id: 132812386 },
+            { type: 'video', id: 31476194 },
             { type: 'text', src: 'content.html' },
             { type: 'text', src: '/static/test.html' },
             { type: 'text', src: '/static/test.html' },
@@ -156,6 +157,12 @@ function getGalleryItem(alias, num) {
     return (topography && num) ? topography.menuObjects[num] : null
 }
 
+function getSubtitle(alias) {
+    console.log('searching for subtitle')
+    var topography = alias ? topographies.find(topography => topography.alias === alias) : null
+    return topography ? topography.subtitle : null
+}
+
 export default topographies;
 
-export { topographies, getCurTopography, getCurObjects, getGalleryItem };
+export { topographies, getCurTopography, getCurObjects, getGalleryItem, getSubtitle };

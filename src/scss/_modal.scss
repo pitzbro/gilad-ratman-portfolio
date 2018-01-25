@@ -1,5 +1,5 @@
 .modal-bg {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.3);
     position :fixed;
     top: 0;
     left: 0;
@@ -8,16 +8,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 999;
     cursor: pointer;
     .modal {
         &.text {
             width: 70%;
-            max-height: 50%;
-            background: #616771;
-            color: #fff;
-            padding: 10px 50px;
+            max-height: 70%;
+            background: #fff;
+            padding: 10px 90px 10px 25px;
+            color: #272422;
             overflow-y: scroll;
-            border-radius: 5px;
+            border-bottom: 20px solid #fff;
+            border-top: 20px solid #fff;
+            p {
+                text-align: justify;
+            }
         }
     }
 }

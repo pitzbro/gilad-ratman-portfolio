@@ -2,7 +2,7 @@
 
   <section>
 
-    <ul class="clean-list menu project-menu projects link-list">
+    <ul class="clean-list menu project-menu menu-projects link-list">
           <router-link v-for="(topotopography, index) in topographies" 
                      :to="`/project/${topotopography.alias}`" 
                      :key="index"

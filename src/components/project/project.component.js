@@ -1,18 +1,18 @@
-import menuObject from '@/components/object/object';
 import { getCurObjects } from '@/services/topography/topographies';
 
 export default {
   name: 'project',
-  components: {
-    menuObject
-  },
+  props: ['isLoaded'],
   data() {
     return {
       alias: null,
       menuObjects: null
     }
   },
-  methods: {
+  watch: {
+    isLoaded(newLoaded, oldLoaded) {
+      console.log('am I Loaded?', newLoaded);
+    }
   },
   mounted() {
     this.alias = this.$route.params.alias;

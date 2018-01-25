@@ -195,12 +195,14 @@ export default {
         terrain.visible = true;
         that.loaded = true;
         bus.$emit('loadedAnimation');
+        that.$emit('animationLoaded', true);
         console.log('loadedAnimation');
       });
 
       this.loadingManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
 
-        console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+        // console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+        if (itemsLoaded === itemsTotal) console.log('Im LOADED')
 
       };
 
@@ -316,6 +318,7 @@ export default {
     },
 
     stopAnimation() {
+      console.log('hey Im stopping animation!!!')
       cancelAnimationFrame(this.mainAnimation);
     },
 
@@ -425,8 +428,10 @@ export default {
     this.directionalLight = new THREE.DirectionalLight(0xffffff, 1.15);
     this.pointLight = new THREE.PointLight(0xff4400, 1.5);
 
-    bus.$on('stopAnimation', this.stopAnimation) 
-    bus.$on('startAnimation', this.startAnimation) 
+    bus.$on('galleryOn', this.stopAnimation) 
+    bus.$on('galleryOff', this.startAnimation) 
+
+    console.log('TYPOGRAPHY LOADED', this.project)
       
   }
 }
