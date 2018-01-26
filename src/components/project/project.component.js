@@ -1,21 +1,30 @@
 import { getCurObjects } from '@/services/topography/topographies';
 
+// Bus
+import { bus } from '@/bus.js';
+
 export default {
   name: 'project',
-  props: ['isLoaded'],
   data() {
     return {
       alias: null,
-      menuObjects: null
+      menuObjects: null,
+      showObjects: true
     }
   },
-  watch: {
-    isLoaded(newLoaded, oldLoaded) {
-      console.log('am I Loaded?', newLoaded);
+  methods: {
+    hideObjects() {
+      this.showObjects = false;
+    },
+    displayObjects() {
+      this.showObjects = true;
     }
   },
   mounted() {
     this.alias = this.$route.params.alias;
     this.menuObjects = getCurObjects(this.alias);
+
+    bus.$on('galleryOn', this.hideObjects) 
+    bus.$on('galleryOff', this.displayObjects) 
   }
 }

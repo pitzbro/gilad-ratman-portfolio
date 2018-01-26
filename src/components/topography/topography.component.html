@@ -1,5 +1,21 @@
 <section>
+
+  <transition name="fade">
+    <router-link to="/" class="home-button" v-if="loaded">
+        <svg class="arrow-icon" version="1.1" id="Capa_1" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve">
+            <g id="keyboard-arrow-left">
+            <polygon fill="#fff" points="247.35,270.3 130.05,153 247.35,35.7 211.65,0 58.65,153 211.65,306   "/>
+            </g>
+        </svg>
+    </router-link>
+  </transition>
+
+  <transition name="slideUp">
+    <router-view v-if="loaded"></router-view>
+  </transition>
+
   <transition name="fade">
     <div v-show="loaded" id="container" class="topography" ref="topographyContainer"></div>
   </transition>
+
 </section>

@@ -211,8 +211,8 @@ export default {
       var specularMap = new THREE.WebGLRenderTarget(2048, 2048, pars);
       specularMap.texture.generateMipmaps = false;
 
-      this.diffuseTexture1 = this.textureLoader.load(`/static/projects/${this.project}/001.jpg`);
-      this.diffuseTexture2 = this.textureLoader.load(`/static/projects/${this.project}/002.jpg`);
+      this.diffuseTexture1 = this.textureLoader.load(`/static/projects/${this.project}/textures/001.jpg`);
+      this.diffuseTexture2 = this.textureLoader.load(`/static/projects/${this.project}/textures/002.jpg`);
       this.detailTexture = this.textureLoader.load(`/static/img/white.gif`);
 
       this.diffuseTexture1.wrapS = this.diffuseTexture1.wrapT = THREE.RepeatWrapping;
@@ -388,8 +388,8 @@ export default {
 
         //Textures
         uniformsTerrain['uRepeatOverlay'].value.set(this.texturesRepeat, this.texturesRepeat);
-        this.diffuseTexture1 = this.textureLoader.load(`/static/projects/${this.project}/001.jpg`);
-        this.diffuseTexture2 = this.textureLoader.load(`/static/projects/${this.project}/002.jpg`);
+        this.diffuseTexture1 = this.textureLoader.load(`/static/projects/${this.project}/textures/001.jpg`);
+        this.diffuseTexture2 = this.textureLoader.load(`/static/projects/${this.project}/textures/002.jpg`);
         this.detailTexture = this.textureLoader.load(`/static/img/white.gif`);
 
         terrain.material.needsUpdate = true;

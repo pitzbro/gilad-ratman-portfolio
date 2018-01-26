@@ -70,7 +70,7 @@
       this.galleryComponent = 'gallery' + (this.type.charAt(0).toUpperCase() + this.type.slice(1));
 
       this.videoId = (this.item.id)? this.item.id : null
-      this.htmlSrc = `/static/projects/${this.alias}/gallery/${this.num}/${this.item.src}`
+      this.htmlSrc = `/static/projects/${this.alias}/gallery/${this.item.src}`
 
       console.log('emitting galleryOn')
 

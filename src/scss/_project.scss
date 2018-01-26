@@ -1,0 +1,14 @@
+.project-wrapper {
+    .objectItem {
+        transition: all .5s;
+        transform: translate(0, $toggleUp);
+        opacity: 0;
+    }
+
+    &.showObjects {
+        .objectItem {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
+}

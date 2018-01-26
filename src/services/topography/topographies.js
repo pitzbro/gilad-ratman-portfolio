@@ -43,9 +43,6 @@ const topographies = [
         menuObjects: [
             { type: 'video', id: 31476194 },
             { type: 'text', src: 'content.html' },
-            { type: 'text', src: '/static/test.html' },
-            { type: 'text', src: '/static/test.html' },
-            { type: 'text', src: '/static/test.html' }
         ],
 
         // GLOBALS
@@ -110,10 +107,10 @@ const topographies = [
     {
         name: 'Swarm',
         alias: 'swarm',
+        subtitle: 'Temporary subtitle',
 
         menuObjects: [
-            { type: 'text', src: '/static/test.html' },
-            { type: 'text', src: '/static/test.html' },
+            { type: 'video', id: 123136781 },
             { type: 'text', src: '/static/test.html' }
         ],
 

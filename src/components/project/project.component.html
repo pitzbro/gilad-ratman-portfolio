@@ -1,18 +1,21 @@
 <section class="project">
 
-    <!-- <transition name="fade"></transition> -->
+    <transition name="fade">
         <router-view></router-view>
-    <!-- </transition> -->
+    </transition>
 
-    <!-- <transition name="objectApear"> -->
-            <router-link v-for="(menuObject, idx) in menuObjects"
-                        :key="idx"
-                        :to="`/project/${alias}/gallery/${idx}`"
-                        class="menuObject">
+    <div class="project-wrapper" :class="{ showObjects }">
 
-                <img :src="`/static/projects/${alias}/objects/${idx}.gif`" />
+        <router-link v-for="(menuObject, idx) in menuObjects"
+                    :key="idx"
+                    :to="`/project/${alias}/gallery/${idx}`"
+                    :class="`menuObject${idx}`"
+                    class="menuObject">
 
-            </router-link>
-    <!-- </transition> -->
+            <img :src="`/static/projects/${alias}/objects/${idx}.gif`" class="objectItem" :class="`objectItem${idx}`"/>
+
+        </router-link>
+
+    </div>
 
 </section>
