@@ -1,6 +1,6 @@
 <template lang="html" class="text">
 
-  <div class="modal" @click.stop="" v-if="textContent" v-html="textContent"></div>
+  <div class="modal main-text" @click.stop="" v-if="textContent" v-html="textContent"></div>
 
 </template>
 

@@ -59,6 +59,8 @@ export default {
   data() {
     return {
 
+      back: '/',
+
       //Project
       name: null,
       loaded: false,
@@ -318,8 +320,9 @@ export default {
     },
 
     stopAnimation() {
-      console.log('hey Im stopping animation!!!')
       cancelAnimationFrame(this.mainAnimation);
+      this.mainAnimation = undefined;
+
     },
 
     render() {
@@ -428,10 +431,17 @@ export default {
     this.directionalLight = new THREE.DirectionalLight(0xffffff, 1.15);
     this.pointLight = new THREE.PointLight(0xff4400, 1.5);
 
-    bus.$on('galleryOn', this.stopAnimation) 
-    bus.$on('galleryOff', this.startAnimation) 
+    var that = this;
 
-    console.log('TYPOGRAPHY LOADED', this.project)
-      
+    bus.$on('galleryOn', url => {
+      console.log('GALLERY ON', url);
+      that.back = url
+      that.stopAnimation()
+    }) 
+    bus.$on('galleryOff', ()=> {
+      that.back="/"
+      that.startAnimation()
+    }) 
+
   }
 }

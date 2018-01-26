@@ -7,6 +7,7 @@
     <component :is="galleryComponent"
               v-if="galleryComponent && (videoId || htmlSrc)" 
               :videoId="videoId"
+              :aspectRatio="aspectRatio"
               :htmlSrc="htmlSrc"
               class="modal"
               :class="[type]" 
@@ -45,18 +46,8 @@
         type: null,
         galleryComponent: null,
         videoId: null,
+        aspectRatio: null,
         htmlSrc: null,
-        animationTimeout: null
-      }
-    },
-    methods: {
-      stopAnimation() {
-
-        if(this.num) {
-          this.animationTimeout = setTimeout(() => {
-            bus.$emit('stopAnimation');
-          }, 1000);
-        }
       }
     },
 
@@ -70,19 +61,13 @@
       this.galleryComponent = 'gallery' + (this.type.charAt(0).toUpperCase() + this.type.slice(1));
 
       this.videoId = (this.item.id)? this.item.id : null
+      this.aspectRatio = (this.item.aspectRatio)? this.item.aspectRatio : null
       this.htmlSrc = `/static/projects/${this.alias}/gallery/${this.item.src}`
 
-      console.log('emitting galleryOn')
-
-      bus.$emit('galleryOn');
-      bus.$on('loadedAnimation', this.stopAnimation)
-
+      bus.$emit('galleryOn', `/project/${this.alias}`);
     },
     beforeDestroy() {
       bus.$emit('galleryOff');
-      clearTimeout(this.animationTimeout);
-      this.animationTimeout = null;
-      this.num = null;
     }
 }
 </script>

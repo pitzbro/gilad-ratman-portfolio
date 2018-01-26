@@ -1,13 +1,19 @@
-<template lang="html" class="video">
+<template lang="html" class="videoWrapper">
 
-  <iframe :src="`https://player.vimeo.com/video/${videoId}?autoplay=1`" 
-          width="683" 
-          height="512" 
-          frameborder="0" 
-          webkitallowfullscreen 
-          mozallowfullscreen 
-          allowfullscreen>
-  </iframe>
+<div class="videoContainer">
+
+  <div class="videoWrapper" :style="{ 'padding-bottom': aspectRatio }">
+
+    <iframe :src="`https://player.vimeo.com/video/${videoId}?autoplay=1`"  
+            frameborder="0"
+            webkitallowfullscreen 
+            mozallowfullscreen 
+            allowfullscreen>
+    </iframe>
+
+  </div>
+
+</div>
 
 </template>
 
@@ -15,7 +21,7 @@
 
   export default  {
     name: 'video',
-    props: ['videoId'],
+    props: ['videoId', 'aspectRatio'],
 }
 </script>
 
