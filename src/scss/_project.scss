@@ -1,8 +1,27 @@
+.project {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+
 .project-wrapper {
+
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    .menuObject {
+        display: block;
+        flex: 1;
+        text-align: center;
+    }
+
+
     .objectItem {
         transition: all .5s;
         transform: translate(0, $toggleUp);
         opacity: 0;
+        width: 70%;
     }
 
     &.showObjects {
