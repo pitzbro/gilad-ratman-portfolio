@@ -1,43 +1,62 @@
-$projectMenuHeight: 800px;
+@mixin objectMenuLinks() {
+    background: url('/static/img/objects_sprite.png');
+    background-size: 200%;
+}
 
 .menu-projects {
-
+    
     .project-link {
-        background: url('/static/img/objects_sprite.png');
-        background-size: 200%;
         width: 15%;
         position: absolute;
-        // position: relative;
-        // transition: flex 0.3s;
+        @include objectMenuLinks();
+        background-position-x: 0;
+
         &::after {
             content: "";
             display: block;
             padding-bottom: 100%;
+            @include objectMenuLinks();
+            background-position-x: 100%;
+            opacity: 0;
+            transition: opacity .6s ease-out;
+        }
+        
+        &:hover::after {
+           opacity: 1;
         }
 
-        &:hover {
-            background-position-x: 100%;
-        }
 
         &.project-1 {
-            background-position-y: 0;
+            background-position-y:0;
             bottom: 12%;
             left: 78%;
+            &::after {
+                background-position-y: 0;
+            }
         }
         &.project-2 {
             background-position-y: 33.333%;
             bottom: 21.4%;
             left: 61%;
+            &::after {
+                background-position-y: 33.333%;
+            }
         }
         &.project-3 {
             background-position-y: 66.666%;
             bottom: 3.4%;
             left: 49%;
+            &::after {
+                background-position-y: 66.666%;
+            }
         }
         &.project-4 {
             background-position-y: 100%;
             bottom: 20%;
             left: 5%;
+            &::after {
+                background-position-y: 100%;
+            }
         }
     }
   }
