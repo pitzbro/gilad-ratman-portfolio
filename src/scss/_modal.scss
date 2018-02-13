@@ -11,17 +11,42 @@
     z-index: 999;
     cursor: pointer;
     .modal {
+        position: relative;
         &.text {
             width: 70%;
-            max-height: 70%;
+            height: 70%;
             background: #fff;
-            padding: 10px 90px 10px 25px;
             color: #272422;
-            overflow-y: scroll;
-            border-bottom: 20px solid #fff;
-            border-top: 20px solid #fff;
+            
+            .text-wrapper {
+                height: 100%;
+                overflow-y: auto;
+                border-bottom: 30px solid #fff;
+                border-top: 30px solid #fff;
+                padding: 0 90px 0 25px;
+            }
+
             p {
                 text-align: justify;
+            }
+            
+            &.hebrew {
+                direction: rtl;
+                .text-wrapper {
+                    padding: 0 25px 0 90px;
+                }
+                .lang-switcher {
+                    right: auto;
+                    left: 0;
+                }
+            }
+
+            .lang-switcher {
+                position: absolute;
+                margin: 25px 15px;
+                right: 0px;
+                font-size: 15px;
+                text-transform: uppercase;
             }
         }
     }

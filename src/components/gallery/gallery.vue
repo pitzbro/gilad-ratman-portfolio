@@ -62,7 +62,7 @@
 
       this.videoId = (this.item.id)? this.item.id : null
       this.aspectRatio = (this.item.aspectRatio)? this.item.aspectRatio : null
-      this.htmlSrc = `/static/projects/${this.alias}/gallery/${this.item.src}`
+      this.htmlSrc = `/static/projects/${this.alias}/texts/`
 
       bus.$emit('galleryOn', `/project/${this.alias}`);
     },

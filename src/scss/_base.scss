@@ -26,6 +26,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: $titleFont;
     font-weight: normal;
     margin-top: 0;
+    margin-bottom: 1rem;
 }
 
 h1 {
@@ -43,6 +44,17 @@ pre {
 a { 
     color: $mainColor; 
     text-decoration: none;
+}
+
+button {
+    background: none;
+    border: none;
+    font-family: $mainFont;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+        color: #999;
+    }
 }
 
 p {
