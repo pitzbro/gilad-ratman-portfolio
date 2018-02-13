@@ -16,21 +16,23 @@
     props: ['htmlSrc'],
     data() {
       return {
-        textContent: null,
+        textContent: '',
         lang: 'english'
       }
     },
     methods: {
 
-      fetchText() {
-        fetch(`${this.htmlSrc}${this.lang}.html`)
+      fetchText(lang) {
+        return fetch(`${this.htmlSrc}${lang}.html`)
           .then( response => response.text())
             .then( text => this.textContent = text);       
       },
 
       toggleLanguage() {
-        this.lang = (this.lang === 'english')? 'hebrew' : 'english';
-        this.fetchText();
+        this.textContent = '';
+        var lang = (this.lang === 'english')? 'hebrew' : 'english';
+        this.fetchText(lang)
+          .then( this.lang = lang )    
       }
 
     },
@@ -40,7 +42,7 @@
       }
     },
     mounted() {
-      this.fetchText();
+      this.fetchText('english');
     }
 }
 </script>
