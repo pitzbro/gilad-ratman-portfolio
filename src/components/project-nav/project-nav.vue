@@ -7,8 +7,7 @@
                      :to="`/project/${topotopography.alias}`" 
                      :key="index"
                      tag="li"
-                     :class="`project project-${index+1} link-list-item`">
-          {{topotopography.name}}
+                     :class="`project-link project-${index+1} link-list-item`">
           <div :class="`project_topography_thumb topography-${index+1}`">
           </div>
         </router-link>

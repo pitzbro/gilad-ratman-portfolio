@@ -2,13 +2,20 @@ html {
     font-family: $mainFont;
     line-height: 1.4;
     font-size:1em;
-    background: #000;
+    background: #0c0c0d;
     color: #fff;
+    background: url('/static/img/pattern.jpg');
+    background-size: 100%;
 }
 
 body {
     margin: 0;
     overflow: hidden;
+}
+
+#app {
+    height: 100%;
+    position: relative;
 }
 
 * {
