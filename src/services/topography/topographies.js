@@ -2,11 +2,11 @@ const topographies = [
     {
         name: 'The 588 Project',
         alias: '588',
-        subtitle: 'temp subtitle',
+        subtitle: 'Two channel video installation - 8 min. 2009',
 
         menuObjects: [
-            { type: 'video', id: 255547346, aspectRatio: '25.6%' },
-            { type: 'video', id: 31480228, aspectRatio: '53.1%' },
+            { type: 'video', id: 255742324, aspectRatio: '25.6%' },
+            { type: 'video', id: 255742324, aspectRatio: '53.1%' },
             { type: 'text', src: 'english.html' }
         ],
 
@@ -39,11 +39,11 @@ const topographies = [
     {
         name: 'Multipillory',
         alias: 'multipillory',
-        subtitle: 'testing some subtitle for the future',
+        subtitle: 'Video installation - wooden structure, endless loop - 2010',
 
         menuObjects: [
-            { type: 'video', id: 31476194, aspectRatio: '72.1%' },
-            { type: 'video', id: 31476194, aspectRatio: '72.1%' },
+            { type: 'video', id: 255713168, aspectRatio: '72.1%' },
+            { type: 'video', id: 255713168, aspectRatio: '72.1%' },
             { type: 'text', src: 'content.html' },
         ],
 
@@ -75,12 +75,12 @@ const topographies = [
     {
         name: '5 Bands From Romania',
         alias: 'romania',
-        subtitle: 'Temp text until a subtitle will be given',
+        subtitle: 'Two channel video installation with soundroom, 12 min. - 2011-2015',
 
         menuObjects: [
-            { type: 'video', id: 139391999, aspectRatio: '53.1%' },
-            { type: 'video', id: 139391999, aspectRatio: '53.1%' },
-            { type: 'video', id: 139391999, aspectRatio: '53.1%' },
+            { type: 'video', id: 255795288, aspectRatio: '53.1%' },
+            { type: 'video', id: 255795288, aspectRatio: '53.1%' },
+            { type: 'video', id: 255795288, aspectRatio: '53.1%' },
             { type: 'text', src: 'english.html' }
         ],
 
@@ -110,11 +110,11 @@ const topographies = [
     {
         name: 'Swarm',
         alias: 'swarm',
-        subtitle: 'Temporary subtitle',
+        subtitle: 'Multi channel video installation - styrofoam screens, 4 min. - 2015',
 
         menuObjects: [
-            { type: 'video', id: 123136781, aspectRatio: '53.1%' },
-            { type: 'video', id: 123136781, aspectRatio: '53.1%' },
+            { type: 'video', id: 255751128, aspectRatio: '53.1%' },
+            { type: 'video', id: 255751128, aspectRatio: '53.1%' },
             { type: 'text', src: 'english.html' }
         ],
 
@@ -159,11 +159,15 @@ function getGalleryItem(alias, num) {
 }
 
 function getSubtitle(alias) {
-    console.log('searching for subtitle')
     var topography = alias ? topographies.find(topography => topography.alias === alias) : null
     return topography ? topography.subtitle : null
+}
+function getIndex(alias) {
+    var idx = alias ? topographies.findIndex(topography => topography.alias === alias) : null
+    // console.log('got this index', idx);
+    return idx;
 }
 
 export default topographies;
 
-export { topographies, getCurTopography, getCurObjects, getGalleryItem, getSubtitle };
+export { topographies, getCurTopography, getCurObjects, getGalleryItem, getSubtitle, getIndex };

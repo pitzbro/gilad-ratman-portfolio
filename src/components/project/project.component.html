@@ -1,4 +1,4 @@
-<section class="project">
+<section class="project" :class="`project-${idx}`">
 
     <transition name="fade">
         <router-view></router-view>
@@ -9,10 +9,12 @@
         <router-link v-for="(menuObject, idx) in menuObjects"
                     :key="idx"
                     :to="`/project/${alias}/gallery/${idx}`"
-                    :class="`menuObject${idx}`"
-                    class="menuObject">
+                    :class="`obectItem-${idx}`"
+                    class="objectItem"
+                    tag="img"
+                    :src="`/static/projects/${alias}/objects/${idx}.gif`">
 
-            <img :src="`/static/projects/${alias}/objects/${idx}.gif`" class="objectItem" :class="`objectItem${idx}`"/>
+            <!-- <img :src="`/static/projects/${alias}/objects/${idx}.gif`" class="objectItem" :class="`objectItem${idx}`"/> -->
 
         </router-link>
 

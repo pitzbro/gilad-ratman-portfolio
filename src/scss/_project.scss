@@ -6,28 +6,114 @@
 
 .project-wrapper {
 
-    display: flex;
-    align-items: center;
+    // display: flex;
+    // align-items: center;
     height: 100%;
 
     .menuObject {
         display: block;
+        position: absolute;
         flex: 1;
         text-align: center;
     }
 
 
-    .objectItem {
-        transition: all .5s;
-        transform: translate(0, $toggleUp);
-        opacity: 0;
-        width: 70%;
-    }
-
+    
     &.showObjects {
         .objectItem {
             transform: translate(0, 0);
             opacity: 1;
+        }
+    }
+
+    .objectItem {
+        transition: all .5s;
+        transform: translate(0, $toggleUp);
+        opacity: 0;
+        width: 25%;
+        max-width: 365px;
+        position: absolute;
+        cursor: pointer;
+
+        .project-0 & {
+            &.obectItem-0 {      
+                width: 25%;
+                left: 21%;
+                top: 9%; 
+            }
+            &.obectItem-1 {      
+                width: 26%;
+                left: 1%;
+                top: 43%; 
+            }
+            &.obectItem-2 {      
+                width: 31%;
+                left: 69%;
+                bottom: 8%; 
+            }
+        }
+
+        .project-1 & {
+            &.obectItem-0 {      
+                width: 28%;
+                left: 29%;
+                bottom: 31%; 
+            }
+            &.obectItem-1 {      
+                width: 23%;
+                left: 6%;
+                bottom: 12%;
+                max-width: 235px;
+            }
+            &.obectItem-2 {      
+                width: 34%;
+                left: 9%;
+                top: 8%;
+            }
+        }
+
+        .project-2 & {
+            &.obectItem-0 {      
+                width: 28%;
+                right: 24%;
+                bottom: 49%;
+            }
+            &.obectItem-1 {      
+                width: 15%;
+                right: 6%;
+                bottom: 9%;
+            }
+            &.obectItem-2 {      
+                width: 42%;
+                left: 7%;
+                top: 14%;
+            }
+            &.obectItem-3 {      
+                left: 19%;
+                bottom: 10%;
+                width: 34%;
+            }
+        }
+
+        .project-3 & {
+            &.obectItem-0 {      
+                width: 16%;
+                left: 31%;
+                bottom: 10%;
+                max-width: 170px;
+            }
+            &.obectItem-1 {      
+                width: 23%;
+                left: 6%;
+                bottom: 12%;
+                max-width: 245px;
+            }
+            &.obectItem-2 {      
+                width: 21%;
+                right: 9%;
+                bottom: 3%;
+                max-width: 220px;
+            }
         }
     }
 }
@@ -43,7 +129,7 @@
     padding-top: 25px;
     height: 0;
     width: 100%;
-    background: #000;
+    // background: #000;
     margin: 0 auto;
 }
 .videoWrapper iframe {
