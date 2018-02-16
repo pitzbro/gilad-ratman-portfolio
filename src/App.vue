@@ -1,23 +1,38 @@
 <template>
   <div id="app">
-    <header v-if="!alias">
-      <router-link to="/">
-        <h1>Gilad Ratman</h1>
-      </router-link>
-      <span v-for="(topography, index) in topographies">
-        {{topography.name}}
-        <span v-if="!alias && index < topographies.length - 1"> | </span>
-      </span>
-    </header>
 
-    <header v-else>
-      <h1>{{alias}}</h1>
-      <span>{{subtitle}}</span>
-    </header>
-
-    <!-- <router-view></router-view> -->
     <transition name="fade">
-     <project-nav v-if="!isLoaded" class="front front-menu"></project-nav>
+
+      <header v-if="!credits">
+
+        <div v-if="!alias">
+
+          <div class="header-menu">
+
+            <router-link to="/">
+              <h1>Gilad Ratman</h1>
+            </router-link>
+
+            <span v-for="(topography, index) in topographies">
+              {{topography.name}}
+              <span v-if="!alias && index < topographies.length - 1"> | </span>
+            </span>
+
+          </div>
+
+        </div>
+
+        <div v-else>
+          <h1>{{alias}}</h1>
+          <span>{{subtitle}}</span>
+        </div>
+
+      </header>
+    
+    </transition>
+
+    <transition name="fade">
+     <project-nav v-if="!isLoaded" class="front front-menu" @toggleCredits="toggleCredits"></project-nav>
     </transition>
 
     
@@ -47,6 +62,7 @@ export default {
     return {
       topographies,
       isLoaded: false,
+      credits: null,
       alias: null,
       subtitle: null
     };
@@ -54,6 +70,9 @@ export default {
   methods: {
     animationLoaded(isLoaded) {
       this.isLoaded = isLoaded;
+    },
+    toggleCredits() {
+      this.credits = !this.credits;
     }
   },
 

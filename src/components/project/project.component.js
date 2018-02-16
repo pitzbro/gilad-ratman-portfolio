@@ -1,5 +1,5 @@
-import { getCurObjects } from '@/services/topography/topographies';
-import { getIndex } from '@/services/topography/topographies';
+// Services
+import { getCurObjects, getIndex } from '@/services/topography/topographies';
 
 // Bus
 import { bus } from '@/bus.js';
@@ -26,8 +26,6 @@ export default {
     this.alias = this.$route.params.alias;
     this.menuObjects = getCurObjects(this.alias);
     this.idx = getIndex(this.alias);
-
-    console.log('project component got idx', this.idx)
 
     bus.$on('galleryOn', this.hideObjects) 
     bus.$on('galleryOff', this.displayObjects) 
