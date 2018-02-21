@@ -6,7 +6,7 @@ const topographies = [
 
         menuObjects: [
             { type: 'video', id: 255742324, aspectRatio: '25.6%' },
-            { type: 'video', id: 255742324, aspectRatio: '53.1%' },
+            { type: 'images', num: 12 },
             { type: 'text', src: 'english.html' }
         ],
 
@@ -43,7 +43,7 @@ const topographies = [
 
         menuObjects: [
             { type: 'video', id: 255713168, aspectRatio: '72.1%' },
-            { type: 'video', id: 255713168, aspectRatio: '72.1%' },
+            { type: 'images', num: 13 },
             { type: 'text', src: 'content.html' },
         ],
 
@@ -79,7 +79,7 @@ const topographies = [
 
         menuObjects: [
             { type: 'video', id: 255795288, aspectRatio: '53.1%' },
-            { type: 'video', id: 255795288, aspectRatio: '53.1%' },
+            { type: 'images', num: 15 },
             { type: 'video', id: 255795288, aspectRatio: '53.1%' },
             { type: 'text', src: 'english.html' }
         ],
@@ -114,7 +114,7 @@ const topographies = [
 
         menuObjects: [
             { type: 'video', id: 255751128, aspectRatio: '53.1%' },
-            { type: 'video', id: 255751128, aspectRatio: '53.1%' },
+            { type: 'images', num: 11 },
             { type: 'text', src: 'english.html' }
         ],
 

@@ -7,8 +7,10 @@
     <component :is="galleryComponent"
               v-if="galleryComponent && (videoId || htmlSrc)" 
               :videoId="videoId"
-              :aspectRatio="aspectRatio"
+              :aspectRatio="aspectRatio" 
               :htmlSrc="htmlSrc"
+              :galleryNum="galleryNum" 
+              :projectFolder="projectFolder" 
               class="modal"
               :class="[type]" 
               @click.stop=""></component>
@@ -24,6 +26,7 @@
   // Components
   import galleryVideo from '@/components/gallery/gallery-video';
   import galleryText from '@/components/gallery/gallery-text';
+  import galleryImages from '@/components/gallery/gallery-images';
 
   // Services
   import { getGalleryItem } from '@/services/topography/topographies';
@@ -36,7 +39,8 @@
     name: 'gallery',
     components: {
       galleryVideo,
-      galleryText
+      galleryText,
+      galleryImages
       },
     data() {
       return {
@@ -48,6 +52,8 @@
         videoId: null,
         aspectRatio: null,
         htmlSrc: null,
+        galleryNum: null,
+        projectFolder: null
       }
     },
 
@@ -63,6 +69,8 @@
       this.videoId = (this.item.id)? this.item.id : null
       this.aspectRatio = (this.item.aspectRatio)? this.item.aspectRatio : null
       this.htmlSrc = `/static/projects/${this.alias}/texts/`
+      this.projectFolder = `/static/projects/${this.alias}/`
+      this.galleryNum = (this.item.num)? this.item.num : null
 
       bus.$emit('galleryOn', `/project/${this.alias}`);
     },
