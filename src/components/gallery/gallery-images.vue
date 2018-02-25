@@ -7,9 +7,11 @@
            :class="{ active: index <= currImage}">
 
     </div>
-    <div v-if="!galleryEnd" @click.stop="nextImage" class="galleryPager">
-      <!-- <button @click.stop="nextImage">Next image ❯</button>  -->
+    <div class="galleryPager">
       {{currImage + 1}} / {{galleryNum}}
+      <button :class="{ inactive: !currImage }" @click.stop="prevImage">PREV</button> | 
+      <button @click.stop="nextImage" :class="{ inactive: galleryEnd }">NEXT</button>
+
     </div>
   </section>
 
@@ -23,22 +25,43 @@
     data() {
       return {
         currImage: 0,
-        galleryEnd: false
+        // galleryEnd: false
       }
     },
     methods: {
       nextImage() {
-        if (this.currImage >= this.galleryNum-2) {
-          this.galleryEnd = true;
+        if (!this.galleryEnd) {
           this.currImage++
-          return
         }
-        this.currImage++
+      },
+      prevImage() {
+        if (this.currImage) {
+          this.currImage--
+        }
+      }
+    },
+    computed: {
+      galleryEnd() {
+        return (this.currImage >= this.galleryNum-1) ? true : false;
       }
     }
 }
 </script>
 
 <style scoped lang="scss">
+
+  button {
+    color: #fff;
+    &:hover {
+      text-decoration: underline;
+    }
+    &.inactive {
+      color: grey;
+      &:hover {
+        cursor: default;
+        text-decoration: none;
+      }
+    }
+  }
 
 </style>
