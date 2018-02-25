@@ -2,14 +2,15 @@
 
   <section>
     <div class="image-gallery" @click.stop="nextImage" :class="{ end: galleryEnd }">
-      <img v-for="(n, index) in galleryNum + 1" 
+      <img v-for="(n, index) in galleryNum" 
            :src="`${projectFolder}images/${index}.png`" 
            :class="{ active: index <= currImage}">
 
     </div>
-    <div v-if="!galleryEnd">
+    <div v-if="!galleryEnd" @click.stop="nextImage" class="galleryPager">
       <!-- <button @click.stop="nextImage">Next image ❯</button>  -->
-      {{currImage + 1}} / {{galleryNum}}</div>
+      {{currImage + 1}} / {{galleryNum}}
+    </div>
   </section>
 
 </template>

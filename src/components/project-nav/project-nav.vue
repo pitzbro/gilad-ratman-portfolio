@@ -27,8 +27,8 @@
     <transition name="fade">
       <section v-if="credits" class="credits-wrapper" @click="toggleCredits">
         <div class="credits" @click.stop>
-          <p><img src="/static/img/logos/hapais-logo-white.png"/></p>
-          <p>Sponsored by <strong>Mifal Hapais</strong></p>
+          <p><img src="/static/img/logos/hapais-logo-white-long.png"/></p>
+          <p>The catalog was produced with the support of the <strong>Israel Lottery Council For Culture & Arts</strong></p>
           <p>Site by <a href="http://asioren.co.il/" target="_blank"><strong>Asi Oren</strong></a></p>
           <p>3D Modeling <strong>David Chaki</strong></p>
           <p>Advisor <strong>Nir Harel</strong></p>

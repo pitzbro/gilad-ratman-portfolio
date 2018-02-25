@@ -55,18 +55,27 @@
         }
         &.images {
             width: 75%;
-            button {
-                color: #000;
-                font-weight: normal;
-                font-size: 16px;
-                background: #fff;
-                padding: 4px 10px;
-                box-shadow: -2px 2px black;
-                &:hover {
-                    color: #fff;
-                    background: #000;
-                    // box-shadow: -2px 2px #fff;
-                }
+            max-width: 1200px;
+            // button {
+            //     color: #000;
+            //     font-weight: normal;
+            //     font-size: 16px;
+            //     background: #fff;
+            //     padding: 4px 10px;
+            //     box-shadow: -2px 2px black;
+            //     &:hover {
+            //         color: #fff;
+            //         background: #000;
+            //         // box-shadow: -2px 2px #fff;
+            //     }
+            // }
+            .galleryPager {
+                position: fixed;
+                right: 0;
+                top: 0;
+                padding: 20px;
+                z-index: 200;
+                cursor: pointer;
             }
             .image-gallery {
                 padding-bottom: 62.525%;
