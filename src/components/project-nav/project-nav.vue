@@ -3,7 +3,7 @@
   <section>
     <button @click="toggleCredits" class="credits-btn">
 
-      <svg v-if="!credits" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      <!-- <svg v-if="!credits" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
          fill="#fff" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
         <path id="info-6-icon" d="M255.961-94.731 M255.961,609.811 M255.961-94.731 M248.674,503.302
         c-59.867,21.037-109.219-3.088-99.319-60.581c9.904-57.507,66.711-180.613,74.816-203.893c8.098-23.282-7.432-29.663-24.078-20.189
@@ -12,7 +12,8 @@
         c14.768-10.082,30.5-23.797,42.032-34.433c5.337,8.671,7.042,11.436,12.32,21.399C340.544,441.157,288.178,489.175,248.674,503.302z
           M372.711,105.016c-27.152,23.113-67.398,22.612-89.913-1.127c-22.509-23.729-18.755-61.704,8.394-84.822
         c27.148-23.109,67.405-22.608,89.913,1.115C403.613,43.919,399.86,81.894,372.711,105.016z"/>
-      </svg>
+      </svg> -->
+      <span v-if="!credits">Credits</span>
 
       <span v-else>
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#fff" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 357 357" style="enable-background:new 0 0 357 357;" xml:space="preserve">

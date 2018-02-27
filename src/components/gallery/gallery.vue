@@ -7,6 +7,7 @@
     <component :is="galleryComponent"
               v-if="galleryComponent && (videoId || htmlSrc)" 
               :videoId="videoId"
+              :num="num"
               :aspectRatio="aspectRatio" 
               :htmlSrc="htmlSrc"
               :galleryNum="galleryNum" 
@@ -25,6 +26,7 @@
 
   // Components
   import galleryVideo from '@/components/gallery/gallery-video';
+  import galleryAudio from '@/components/gallery/gallery-audio';
   import galleryText from '@/components/gallery/gallery-text';
   import galleryImages from '@/components/gallery/gallery-images';
 
@@ -39,6 +41,7 @@
     name: 'gallery',
     components: {
       galleryVideo,
+      galleryAudio,
       galleryText,
       galleryImages
       },

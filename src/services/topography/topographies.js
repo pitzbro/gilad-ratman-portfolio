@@ -80,8 +80,8 @@ const topographies = [
         menuObjects: [
             { type: 'video', id: 255795288, aspectRatio: '53.1%' },
             { type: 'images', num: 15 },
-            { type: 'video', id: 255795288, aspectRatio: '53.1%' },
-            { type: 'text', src: 'english.html' }
+            { type: 'text', src: 'english.html' },
+            { type: 'audio' }
         ],
 
         //topography
