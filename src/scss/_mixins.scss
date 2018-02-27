@@ -1,0 +1,6 @@
+// Media Queries
+@mixin short-layout {
+    @media (max-height: 850px) {
+        @content;
+    }
+}

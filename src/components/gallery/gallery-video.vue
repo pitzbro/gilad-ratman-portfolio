@@ -1,6 +1,6 @@
 <template lang="html" class="videoWrapper">
 
-<div class="videoContainer" :style="{ width: videoWidth }">
+<div class="video-container" :style="{ width: videoWidth }">
 
   <div class="videoWrapper" :style="{ 'padding-bottom': aspectRatio }">
 
@@ -30,19 +30,19 @@
         switch(this.aspectRatio) {
             case '25.6%':
                 console.log('aspect 25.6')
-                computedWidth = '80%'
+                computedWidth = '230vh'
                 break;
             case '53.1%':
                 console.log('aspect 53.1')
-                computedWidth = '75%'
+                computedWidth = '130vh'
                 break;
             case '72.1%':
                 console.log('aspect 72.1')
-                computedWidth = '55%'
+                computedWidth = '95vh'
                 break;
             default:
                 console.log('aspect default')
-                computedWidth = '75%'
+                computedWidth = '130vh'
         }
         return computedWidth;
       }

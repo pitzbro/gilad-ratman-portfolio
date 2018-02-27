@@ -56,8 +56,12 @@
                 text-transform: uppercase;
             }
         }
+        &.videoContainer {
+            width: 230vh; 
+            max-width: 80%;
+        }
         &.images {
-            width: 75%;
+            width: 120vh;
             max-width: 1200px;
             .galleryPager {
                 position: fixed;
