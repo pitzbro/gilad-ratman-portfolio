@@ -6,7 +6,22 @@ const topographies = [
 
         menuObjects: [
             { type: 'video', videos: [{ id: 255742324, aspectRatio: '25.6%'}] },
-            { type: 'images', num: 12 },
+            { type: 'images', num: 12, 
+              captions: [
+                'Black Mud, Digital collage, 2009',
+                'Study for The 588 Project, 2009',
+                'Production still, Studio 588, Arkansas',
+                'Deep Sinking culture',
+                'Deep Sinking culture',
+                'Deep Sinking culture',
+                'Bubbling Mud, New Zealand',
+                'Deep Sinking culture',
+                'The 588 Project, Installation view',
+                'The 588 Project, production still',
+                'Deep Sinking culture',
+                'Study for The 588 Project, 2009'
+              ]
+              },
             { type: 'text', src: 'english.html' }
         ],
 
@@ -43,7 +58,23 @@ const topographies = [
 
         menuObjects: [
             { type: 'video', videos: [{ id: 255713168, aspectRatio: '72.1%' }, { id: 255713168, aspectRatio: '72.1%' }]  },
-            { type: 'images', num: 13 },
+            { type: 'images', num: 13,
+              captions: [
+                'Multipillory production set',
+                'Multipillory production set',
+                'Chinese Cangue (Mobile pillory), late nineteenth century',
+                'Multipillory production set',
+                'Multipillory production set',
+                'Multipillory production set',
+                'Still from video, detail',
+                'Multipillory production set',
+                'Stick your face, Maryland Zoo',
+                'Installation View, TRAFO Center for Contemporary Art, Szczecin, Poland, 2015',
+                'Installation View, TRAFO Center for Contemporary Art, Szczecin, Poland, 2015',
+                'Chinese Cangue (Mobile pillory) 1870',
+                'Installation View, TRAFO Center for Contemporary Art, Szczecin, Poland, 2015'
+              ]
+             },
             { type: 'text', src: 'content.html' },
         ],
 
@@ -79,7 +110,21 @@ const topographies = [
 
         menuObjects: [
             { type: 'video',  videos: [{ id: 255795288, aspectRatio: '53.1%'  }, { id: 255713168, aspectRatio: '72.1%' }] },
-            { type: 'images', num: 15 },
+            { type: 'images', num: 15,
+            captions: [
+                'Still from Five Bands from Romania',
+                'Still from Five Bands from Romania',
+                'Installation View, TRAFO Center for Contemporary Art, Szczecin, Poland, 2015',
+                'Still from Pink Floyd: Live at Pompeii, 1971',
+                'Metallica, Monsters of Rock concert, Moscow, 1991',
+                'Five Bands from Romania, Technical layout',
+                'The "VOX" club, Suceava, Romania, 2011',
+                'Still from Five Bands from Romania',
+                'Still from Five Bands from Romania',
+                'Installation View, TRAFO Center for Contemporary Art, Szczecin, Poland, 2015',
+                'Installation View, TRAFO Center for Contemporary Art, Szczecin, Poland, 2015',
+              ]
+            },
             { type: 'text', src: 'english.html' },
             { type: 'audio' }
         ],
@@ -114,7 +159,21 @@ const topographies = [
 
         menuObjects: [
             { type: 'video', videos: [{ id: 255751128, aspectRatio: '53.1%'  }] },
-            { type: 'images', num: 11 },
+            { type: 'images', num: 11,
+            captions: [
+                'Locust swarming',
+                'Franz Reichelt wearing his parachute suit, 1912',
+                'Swarm, production set',
+                'Swarm, production set',
+                'Swarm, production set',
+                'Installation View, TRAFO Center for Contemporary Art, Szczecin, Poland, 2015',
+                'Installation View, TRAFO Center for Contemporary Art, Szczecin, Poland, 2015',
+                'Installation View, TRAFO Center for Contemporary Art, Szczecin, Poland, 2015',
+                'Architectural model, Swarm installation',
+                'Installation View, TRAFO Center for Contemporary Art, Szczecin, Poland, 2015',
+                'Installation View, TRAFO Center for Contemporary Art, Szczecin, Poland, 2015'
+              ]
+            },
             { type: 'text', src: 'english.html' }
         ],
 

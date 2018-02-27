@@ -10,6 +10,7 @@
               :num="num"
               :htmlSrc="htmlSrc"
               :galleryNum="galleryNum" 
+              :captions="captions" 
               :projectFolder="projectFolder" 
               class="modal"
               :class="[type]" 
@@ -54,6 +55,7 @@
         videos: null,
         htmlSrc: null,
         galleryNum: null,
+        captions: null,
         projectFolder: null
       }
     },
@@ -71,6 +73,7 @@
       this.htmlSrc = `/static/projects/${this.alias}/texts/`
       this.projectFolder = `/static/projects/${this.alias}/`
       this.galleryNum = (this.item.num)? this.item.num : null
+      this.captions = (this.item.captions)? this.item.captions : null
 
       bus.$emit('galleryOn', `/project/${this.alias}`);
     },

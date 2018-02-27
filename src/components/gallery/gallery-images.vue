@@ -7,6 +7,7 @@
            :class="{ active: index <= currImage}">
 
     </div>
+    <div class="caption">{{captions[currImage]}}</div>
     <div @click.stop class="gallery-pager pager cursor-default">
       {{currImage + 1}} / {{galleryNum}} | 
       <button :class="{ inactive: !currImage }" @click.stop="prevImage">PREV</button> | 
@@ -21,7 +22,7 @@
 
   export default  {
     name: 'image-gallery',
-    props: ['galleryNum', 'projectFolder'],
+    props: ['galleryNum', 'projectFolder', 'captions'],
     data() {
       return {
         currImage: 0,
@@ -49,5 +50,9 @@
 </script>
 
 <style scoped lang="scss">
+
+.caption {
+  text-align: end;
+}
 
 </style>
