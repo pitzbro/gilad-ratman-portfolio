@@ -5,10 +5,9 @@
   <transition name="slideUp">
 
     <component :is="galleryComponent"
-              v-if="galleryComponent && (videoId || htmlSrc)" 
-              :videoId="videoId"
+              v-if="galleryComponent && (videos || htmlSrc)" 
+              :videos="videos"
               :num="num"
-              :aspectRatio="aspectRatio" 
               :htmlSrc="htmlSrc"
               :galleryNum="galleryNum" 
               :projectFolder="projectFolder" 
@@ -52,8 +51,7 @@
         item:null,
         type: null,
         galleryComponent: null,
-        videoId: null,
-        aspectRatio: null,
+        videos: null,
         htmlSrc: null,
         galleryNum: null,
         projectFolder: null
@@ -69,8 +67,7 @@
       this.type = this.item.type
       this.galleryComponent = 'gallery' + (this.type.charAt(0).toUpperCase() + this.type.slice(1));
 
-      this.videoId = (this.item.id)? this.item.id : null
-      this.aspectRatio = (this.item.aspectRatio)? this.item.aspectRatio : null
+      this.videos = (this.item.videos)? this.item.videos : null
       this.htmlSrc = `/static/projects/${this.alias}/texts/`
       this.projectFolder = `/static/projects/${this.alias}/`
       this.galleryNum = (this.item.num)? this.item.num : null

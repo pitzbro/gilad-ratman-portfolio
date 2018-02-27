@@ -47,6 +47,8 @@ a {
 }
 
 button {
+    display: inline-block;
+    padding: 0;
     background: none;
     border: none;
     font-family: $mainFont;
@@ -57,9 +59,24 @@ button {
     letter-spacing: 0.2rem;
     cursor: pointer;
     &:hover {
-        color: #999;
+        border-bottom: 1px solid $mainColor;
+        // color: #fff;
+        // text-decoration: underline;
+        // color: #999;
     }
-
+    .pager & {
+        &:hover {
+            color: #fff;
+        }
+    }
+    &.inactive {
+        color: #999;
+        &:hover {
+            cursor: default;
+            border: none;
+            color: #999;
+        }
+    }
 }
 
 p {

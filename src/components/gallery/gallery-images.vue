@@ -7,8 +7,8 @@
            :class="{ active: index <= currImage}">
 
     </div>
-    <div class="galleryPager">
-      {{currImage + 1}} / {{galleryNum}}
+    <div @click.stop class="gallery-pager pager cursor-default">
+      {{currImage + 1}} / {{galleryNum}} | 
       <button :class="{ inactive: !currImage }" @click.stop="prevImage">PREV</button> | 
       <button @click.stop="nextImage" :class="{ inactive: galleryEnd }">NEXT</button>
 
@@ -49,19 +49,5 @@
 </script>
 
 <style scoped lang="scss">
-
-  button {
-    color: #fff;
-    &:hover {
-      text-decoration: underline;
-    }
-    &.inactive {
-      color: grey;
-      &:hover {
-        cursor: default;
-        text-decoration: none;
-      }
-    }
-  }
 
 </style>

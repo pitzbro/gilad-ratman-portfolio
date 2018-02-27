@@ -1,6 +1,14 @@
 <template lang="html" class="videoWrapper">
 
+
 <div class="video-container" :style="{ width: videoWidth }">
+
+    <div v-if="videos.length > 1" @click.stop class="video-pager pager cursor-default">
+      {{currVideo + 1}} / {{videos.length}}
+      <button :class="{ inactive: !currVideo }" @click.stop="prevVideo">PREV</button> | 
+      <button @click.stop="nextVideo" :class="{ inactive: (currVideo===videos.length - 1) }">NEXT</button>
+
+    </div>
 
   <div class="videoWrapper" :style="{ 'padding-bottom': aspectRatio }">
 
@@ -21,7 +29,36 @@
 
   export default  {
     name: 'video',
-    props: ['videoId', 'aspectRatio'],
+    props: ['videos'],
+    data() {
+      return {
+        videoId: null,
+        aspectRatio: null,
+        currVideo: 0
+      }
+    },
+    methods: {
+      nextVideo() {
+        console.log('this.currVideo', this.videos, 'videos:', this.videos.length)
+        if (this.currVideo < this.videos.length) {
+          this.currVideo++
+          console.log('next to num:', this.currVideo)
+          this.changeVideoSrc()
+        }
+      },
+      prevVideo() {
+        if (this.currVideo) {
+          this.currVideo--
+          console.log('prev to num:', this.currVideo)
+          this.changeVideoSrc()
+        }
+      },
+      changeVideoSrc() {
+        console.log('changing src to num:', this.currVideo)
+        this.videoId = this.videos[this.currVideo].id;
+        this.aspectRatio = this.videos[this.currVideo].aspectRatio; 
+      }
+    },
     computed: {
       videoWidth() {
         
@@ -47,6 +84,11 @@
         return computedWidth;
       }
     },
+    mounted() {
+      if (this.videos && this.videos.length) {
+        this.changeVideoSrc()
+      }
+    }
 }
 </script>
 

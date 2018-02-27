@@ -5,7 +5,7 @@ const topographies = [
         subtitle: 'Two channel video installation - 8 min. 2009',
 
         menuObjects: [
-            { type: 'video', id: 255742324, aspectRatio: '25.6%' },
+            { type: 'video', videos: [{ id: 255742324, aspectRatio: '25.6%'}] },
             { type: 'images', num: 12 },
             { type: 'text', src: 'english.html' }
         ],
@@ -42,7 +42,7 @@ const topographies = [
         subtitle: 'Video installation - wooden structure, endless loop - 2010',
 
         menuObjects: [
-            { type: 'video', id: 255713168, aspectRatio: '72.1%' },
+            { type: 'video', videos: [{ id: 255713168, aspectRatio: '72.1%' }, { id: 255713168, aspectRatio: '72.1%' }]  },
             { type: 'images', num: 13 },
             { type: 'text', src: 'content.html' },
         ],
@@ -78,7 +78,7 @@ const topographies = [
         subtitle: 'Two channel video installation with soundroom, 12 min. - 2011-2015',
 
         menuObjects: [
-            { type: 'video', id: 255795288, aspectRatio: '53.1%' },
+            { type: 'video',  videos: [{ id: 255795288, aspectRatio: '53.1%'  }, { id: 255713168, aspectRatio: '72.1%' }] },
             { type: 'images', num: 15 },
             { type: 'text', src: 'english.html' },
             { type: 'audio' }
@@ -113,7 +113,7 @@ const topographies = [
         subtitle: 'Multi channel video installation - styrofoam screens, 4 min. - 2015',
 
         menuObjects: [
-            { type: 'video', id: 255751128, aspectRatio: '53.1%' },
+            { type: 'video', videos: [{ id: 255751128, aspectRatio: '53.1%'  }] },
             { type: 'images', num: 11 },
             { type: 'text', src: 'english.html' }
         ],

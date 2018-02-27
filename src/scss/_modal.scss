@@ -54,6 +54,10 @@
                 right: 0px;
                 font-size: 15px;
                 text-transform: uppercase;
+                &:hover {
+                    // color: #999;
+                    border-bottom: 2px solid #000;
+                }
             }
         }
         &.videoContainer {
@@ -63,14 +67,6 @@
         &.images {
             width: 120vh;
             max-width: 1200px;
-            .galleryPager {
-                position: fixed;
-                right: 0;
-                top: 0;
-                padding: 20px;
-                z-index: 200;
-                cursor: pointer;
-            }
             .image-gallery {
                 padding-bottom: 62.525%;
                 margin-bottom: 20px;
@@ -96,4 +92,12 @@
             }
         }
     }
+}
+
+.pager {
+    position: fixed;
+    right: 0;
+    top: 0;
+    padding: 20px;
+    z-index: 200;
 }
