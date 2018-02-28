@@ -110,7 +110,7 @@ const topographies = [
 
         menuObjects: [
             { type: 'video',  videos: [{ id: 255795288, aspectRatio: '53.1%'  }, { id: 255713168, aspectRatio: '72.1%' }] },
-            { type: 'images', num: 15,
+            { type: 'images', num: 11,
             captions: [
                 'Still from Five Bands from Romania',
                 'Still from Five Bands from Romania',

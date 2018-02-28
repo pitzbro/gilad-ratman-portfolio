@@ -20,6 +20,17 @@ export default {
     },
     displayObjects() {
       this.showObjects = true;
+    },
+    getRandomArbitrary(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+    
+  },
+  computed: {
+    objectStyles() {
+      var rotateDeg = this.getRandomArbitrary(-30, 30)
+      // return { transform: 'rotate(' + rotateDeg + 'deg)' }
+      return { transitionDuration: '30s' }
     }
   },
   mounted() {

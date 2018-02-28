@@ -27,13 +27,21 @@
     }
 
     .objectItem {
-        transition: all .5s;
-        transform: translate(0, $toggleUp);
+        transition: all 3s ease-out;
+        transform: translate(0, -$toggleUp);
         opacity: 0;
         width: 25%;
         max-width: 365px;
         position: absolute;
         cursor: pointer;
+
+        // &:hover {
+        //     -webkit-animation: rotating 22s linear infinite;
+        //     -moz-animation: rotating 22s linear infinite;
+        //     -ms-animation: rotating 22s linear infinite;
+        //     -o-animation: rotating 22s linear infinite;
+        //     animation: rotating 22s linear infinite;            
+        // }
 
         .project-0 & {
             &.obectItem-0 {      
