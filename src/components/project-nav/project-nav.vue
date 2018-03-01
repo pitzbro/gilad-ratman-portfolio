@@ -1,7 +1,7 @@
 <template lang="html">
 
   <section>
-    <button @click="toggleCredits" class="credits-btn">
+    <button @click="toggleCredits" class="credits-btn" :class="{ icon: credits }">
 
       <!-- <svg v-if="!credits" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
          fill="#fff" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
@@ -26,7 +26,7 @@
       </button>
 
     <transition name="fade">
-      <section v-if="credits" class="credits-wrapper" @click="toggleCredits">
+      <section v-if="credits" class="credits-wrapper" @click.stop="toggleCredits">
         <div class="credits" @click.stop>
           <p><img src="/static/img/logos/hapais-logo-white-long.png"/></p>
           <p>The catalog was produced with the support of the <strong>Israel Lottery Council For Culture & Arts</strong></p>
@@ -44,6 +44,7 @@
                      :key="index"
                      tag="li"
                      :class="`project-link project-${index+1} link-list-item`">
+          <div class="name">{{topotopography.name}}</div>
         </router-link>
     </ul>
 

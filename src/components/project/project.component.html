@@ -1,5 +1,9 @@
 <section class="project" :class="`project-${idx}`">
 
+    <transition name="fast-fade">
+        <div class="object-info" v-if="objectInfo"> {{objectInfo}} </div>
+    </transition>
+
     <transition name="fade">
         <router-view></router-view>
     </transition>
@@ -12,7 +16,10 @@
                     :class="`obectItem-${idx}`"
                     :style="{ transitionDuration : Math.random()*3 + 2 + 's' }" 
                     class="objectItem" 
-                    tag="img"
+                    tag="img" 
+                    :alt="menuObject.type" 
+                    @mouseover.native="declareType(menuObject.type)"  
+                    @mouseout.native="declareType(null)"  
                     :src="`/static/projects/${alias}/objects/${idx}.gif`">
                     
                     <!-- :style="{ transform : 'rotate(' + Math.random()*40 * (Math.floor(Math.random()*2) == 1 ? 1 : -1) + 'deg)' }"  -->

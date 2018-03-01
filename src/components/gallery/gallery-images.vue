@@ -20,6 +20,9 @@
 
 <script lang="js">
 
+  // Bus
+  import { bus } from '@/bus.js';
+
   export default  {
     name: 'image-gallery',
     props: ['galleryNum', 'projectFolder', 'captions'],
@@ -43,8 +46,18 @@
     },
     computed: {
       galleryEnd() {
-        return (this.currImage >= this.galleryNum-1) ? true : false;
+        return this.currImage >= this.galleryNum-1;
       }
+    },
+    watch: {
+      galleryEnd(newgalleryEnd, oldgalleryEnd) {
+        bus.$emit('galleryEndChange', newgalleryEnd)
+      }
+    },
+    mounted() {
+      bus.$on('nextImage', ()=> {
+        this.nextImage()
+      }) 
     }
 }
 </script>

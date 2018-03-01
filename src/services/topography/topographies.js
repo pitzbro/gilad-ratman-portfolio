@@ -22,7 +22,12 @@ const topographies = [
                 'Study for The 588 Project, 2009'
               ]
               },
-            { type: 'text', src: 'english.html' }
+            // { type: 'text', textSources: 'english.html' }
+            { type: 'text', 
+                textSources: [
+                  { languages: ['english']}, 
+                  { languages: ['hebrew'] } 
+                ]}
         ],
 
         // GLOBALS
@@ -57,7 +62,7 @@ const topographies = [
         subtitle: 'Video installation - wooden structure, endless loop - 2010',
 
         menuObjects: [
-            { type: 'video', videos: [{ id: 255713168, aspectRatio: '72.1%' }, { id: 255713168, aspectRatio: '72.1%' }]  },
+            { type: 'video', videos: [{ id: 255713168, aspectRatio: '72.1%' }, { id: 139198986, aspectRatio: '53.1%' }]  },
             { type: 'images', num: 13,
               captions: [
                 'Multipillory production set',
@@ -75,7 +80,10 @@ const topographies = [
                 'Installation View, TRAFO Center for Contemporary Art, Szczecin, Poland, 2015'
               ]
              },
-            { type: 'text', src: 'content.html' },
+            { type: 'text',
+              textSources: [
+                { languages: ['english', 'hebrew']}
+              ]}
         ],
 
         // GLOBALS
@@ -109,7 +117,7 @@ const topographies = [
         subtitle: 'Two channel video installation with soundroom, 12 min. - 2011-2015',
 
         menuObjects: [
-            { type: 'video',  videos: [{ id: 255795288, aspectRatio: '53.1%'  }, { id: 255713168, aspectRatio: '72.1%' }] },
+            { type: 'video',  videos: [{ id: 255795288, aspectRatio: '53.1%'  }, { id: 139391999, aspectRatio: '53.1%' }] },
             { type: 'images', num: 11,
             captions: [
                 'Still from Five Bands from Romania',
@@ -125,7 +133,10 @@ const topographies = [
                 'Installation View, TRAFO Center for Contemporary Art, Szczecin, Poland, 2015',
               ]
             },
-            { type: 'text', src: 'english.html' },
+            { type: 'text',
+              textSources: [
+                 { languages: ['english', 'hebrew']}
+                 ]},
             { type: 'audio' }
         ],
 
@@ -158,7 +169,7 @@ const topographies = [
         subtitle: 'Multi channel video installation - styrofoam screens, 4 min. - 2015',
 
         menuObjects: [
-            { type: 'video', videos: [{ id: 255751128, aspectRatio: '53.1%'  }] },
+            { type: 'video', videos: [{ id: 255751128, aspectRatio: '53.1%'  }, { id: 138648203, aspectRatio: '53.1%'  }] },
             { type: 'images', num: 11,
             captions: [
                 'Locust swarming',
@@ -174,7 +185,10 @@ const topographies = [
                 'Installation View, TRAFO Center for Contemporary Art, Szczecin, Poland, 2015'
               ]
             },
-            { type: 'text', src: 'english.html' }
+            { type: 'text',
+                textSources: [
+                { languages: ['english', 'hebrew']}
+                ]}
         ],
 
         // GLOBALS

@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <router-link tag="section" class="modal-bg" :to="`/project/${alias}`">
+  <router-link tag="section" :class="{ 'cross-hair': type == 'images', 'not-allowed': galleryEnd}" class="modal-bg" :to="hrefLink" @click.native="emitEvent()">
 
   <transition name="slideUp">
 
@@ -11,6 +11,7 @@
               :htmlSrc="htmlSrc"
               :galleryNum="galleryNum" 
               :captions="captions" 
+              :textSources="textSources" 
               :projectFolder="projectFolder" 
               class="modal"
               :class="[type]" 
@@ -54,9 +55,19 @@
         galleryComponent: null,
         videos: null,
         htmlSrc: null,
+        textSources: null,
         galleryNum: null,
+        galleryEnd: false,
         captions: null,
         projectFolder: null
+      }
+    },
+
+    methods: {
+      emitEvent() {
+        if (this.type === 'images') {
+          bus.$emit('nextImage');
+        }
       }
     },
 
@@ -74,9 +85,21 @@
       this.projectFolder = `/static/projects/${this.alias}/`
       this.galleryNum = (this.item.num)? this.item.num : null
       this.captions = (this.item.captions)? this.item.captions : null
+      this.textSources = (this.item.textSources)? this.item.textSources : null
 
       bus.$emit('galleryOn', `/project/${this.alias}`);
+
+      bus.$on('galleryEndChange', (galleryEnd)=> {
+        this.galleryEnd = galleryEnd;
+      })
     },
+
+    computed: {
+      hrefLink() {
+        return (this.type === 'images')? '#' : `/project/${this.alias}`
+      }
+    },
+
     beforeDestroy() {
       bus.$emit('galleryOff');
     }

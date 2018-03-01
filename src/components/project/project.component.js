@@ -11,7 +11,8 @@ export default {
       idx: null,
       alias: null,
       menuObjects: null,
-      showObjects: true
+      showObjects: true,
+      objectInfo: null
     }
   },
   methods: {
@@ -23,6 +24,9 @@ export default {
     },
     getRandomArbitrary(min, max) {
       return Math.random() * (max - min) + min;
+    },
+    declareType(type) {
+      this.objectInfo = type;
     }
     
   },

@@ -8,6 +8,15 @@
     opacity: 0;
 }
 
+// Fast Fade
+.fast-fade-enter-active, .fast-fade-leave-active {
+    transition: opacity .3s;
+    opacity: 1;
+}
+.fast-fade-enter, .fast-fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
+
 // SlideUp
 .slideUp-enter-active, .slideUp-leave-active {
     transition: all .4s;

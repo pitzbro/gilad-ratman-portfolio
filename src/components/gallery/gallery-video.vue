@@ -4,7 +4,7 @@
 <div class="video-container" :style="{ width: videoWidth }">
 
     <div v-if="videos.length > 1" @click.stop class="video-pager pager cursor-default">
-      {{currVideo + 1}} / {{videos.length}}
+      {{currVideo + 1}} / {{videos.length}} | 
       <button :class="{ inactive: !currVideo }" @click.stop="prevVideo">PREV</button> | 
       <button @click.stop="nextVideo" :class="{ inactive: (currVideo===videos.length - 1) }">NEXT</button>
 

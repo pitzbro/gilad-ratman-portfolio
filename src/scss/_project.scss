@@ -164,6 +164,7 @@
     
     &::-webkit-scrollbar-track {
         background: #fff;
+        border-right: solid 5px transparent;
     }
     
     &::-webkit-scrollbar-thumb {

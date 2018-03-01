@@ -10,6 +10,13 @@
     align-items: center;
     z-index: 999;
     cursor: pointer;
+
+    &.cross-hair {
+        cursor: crosshair;
+        &.not-allowed {
+            cursor: not-allowed;
+        }
+    }
     .modal {
         position: relative;
         &.text {
@@ -34,12 +41,12 @@
                 text-align: justify;
             }
             
-            &.hebrew {
+            &.hebrew > *:not(.pager) {
                 direction: rtl;
-                .text-wrapper {
+                &.text-wrapper {
                     padding: 0 25px 0 90px;
                 }
-                .lang-switcher {
+                &.lang-switcher {
                     right: auto;
                     left: 0;
                 }
@@ -50,9 +57,9 @@
                 letter-spacing: 0;
                 font-weight: bold;
                 position: absolute;
-                margin: 25px 15px;
+                margin: 25px;
                 right: 0px;
-                font-size: 15px;
+                font-size: 17px;
                 text-transform: uppercase;
                 &:hover {
                     // color: #999;
@@ -67,6 +74,15 @@
         &.images {
             width: 120vh;
             max-width: 80%;
+            .images-wrapper {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: green;
+                display: flex;
+                justify-content: center;
+                align-items: center;              
+            }
             .image-gallery {
                 padding-bottom: 62.525%;
                 margin-bottom: 20px;
@@ -100,4 +116,5 @@
     top: 0;
     padding: 20px;
     z-index: 200;
+    color: #fff;
 }
