@@ -10,7 +10,7 @@
           <div class="header-menu">
 
             <router-link to="/">
-              <h1>Gilad Ratman</h1>
+              <h1>Gilad Ratman | גלעד רטמן</h1>
             </router-link>
 
             <span v-for="(topography, index) in topographies">
@@ -23,8 +23,8 @@
         </div>
 
         <div v-else>
-          <h1>{{alias}}</h1>
-          <span>{{subtitle}}</span>
+          <h1>{{name}} </h1>
+          <span> {{subtitle}}</span>
         </div>
 
       </header>
@@ -49,6 +49,7 @@ import ProjectNav from "./components/project-nav/project-nav";
 // Topographies
 import topographies from "@/services/topography/topographies";
 import { getSubtitle } from "@/services/topography/topographies";
+import { getName } from "@/services/topography/topographies";
 
 export default {
   name: "app",
@@ -64,7 +65,8 @@ export default {
       isLoaded: false,
       credits: null,
       alias: null,
-      subtitle: null
+      subtitle: null,
+      name: null
     };
   },
   methods: {
@@ -91,6 +93,7 @@ export default {
     this.alias = this.$route.params.alias;
     if (this.alias) {
       this.subtitle = getSubtitle(this.alias);
+      this.name = getName(this.alias);
     }
   }
 };

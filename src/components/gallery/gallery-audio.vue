@@ -34,7 +34,7 @@
     },
     methods: {
       togglePlay() {
-        this.playing = !this.playing;
+        this.playing = true;
       },
       toggleMute() {
         this.$refs.audioEl.muted = !this.muted;

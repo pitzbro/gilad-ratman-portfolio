@@ -61,7 +61,7 @@
     },
     computed: {
       langButton() {
-        return (this.currLang === 'english')? 'עברית' : 'ENG';
+        return (this.currLang === 'english')? 'עברית' : 'EN';
       },
       languages() {
         return this.textSources[this.currText].languages;

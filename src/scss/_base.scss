@@ -34,6 +34,15 @@ h1 {
     text-transform: capitalize;
     margin-bottom: 1em;
 }
+.text-title {
+    h1.with-subtitle {
+        margin-bottom: 0;
+    }
+    h2 {
+        font-size: 21px;
+    }
+    margin-bottom: 35px;
+}
 
 pre {
     padding-bottom: 30px;

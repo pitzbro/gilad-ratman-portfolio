@@ -2,7 +2,7 @@ const topographies = [
     {
         name: 'The 588 Project',
         alias: '588',
-        subtitle: 'Two channel video installation - 8 min. 2009',
+        subtitle: 'Two channel video installation, 8 min, 2009',
 
         menuObjects: [
             { type: 'video', videos: [{ id: 255742324, aspectRatio: '25.6%'}] },
@@ -59,7 +59,7 @@ const topographies = [
     {
         name: 'Multipillory',
         alias: 'multipillory',
-        subtitle: 'Video installation - wooden structure, endless loop - 2010',
+        subtitle: 'video installation, endless loop, wooden structure, 2010',
 
         menuObjects: [
             { type: 'video', videos: [{ id: 255713168, aspectRatio: '72.1%' }, { id: 139198986, aspectRatio: '53.1%' }]  },
@@ -112,9 +112,9 @@ const topographies = [
     },
 
     {
-        name: '5 Bands From Romania',
+        name: 'Five Bands From Romania',
         alias: 'romania',
-        subtitle: 'Two channel video installation with soundroom, 12 min. - 2011-2015',
+        subtitle: 'two channel video installation, soundroom, 12 min, 2011-2015',
 
         menuObjects: [
             { type: 'video',  videos: [{ id: 255795288, aspectRatio: '53.1%'  }, { id: 139391999, aspectRatio: '53.1%' }] },
@@ -166,7 +166,7 @@ const topographies = [
     {
         name: 'Swarm',
         alias: 'swarm',
-        subtitle: 'Multi channel video installation - styrofoam screens, 4 min. - 2015',
+        subtitle: 'multi channel video installation, 4 min, styrofoam screens, 2015',
 
         menuObjects: [
             { type: 'video', videos: [{ id: 255751128, aspectRatio: '53.1%'  }, { id: 138648203, aspectRatio: '53.1%'  }] },
@@ -235,6 +235,11 @@ function getSubtitle(alias) {
     var topography = alias ? topographies.find(topography => topography.alias === alias) : null
     return topography ? topography.subtitle : null
 }
+
+function getName(alias) {
+    var topography = alias ? topographies.find(topography => topography.alias === alias) : null
+    return topography ? topography.name : null
+}
 function getIndex(alias) {
     var idx = alias ? topographies.findIndex(topography => topography.alias === alias) : null
     // console.log('got this index', idx);
@@ -243,4 +248,4 @@ function getIndex(alias) {
 
 export default topographies;
 
-export { topographies, getCurTopography, getCurObjects, getGalleryItem, getSubtitle, getIndex };
+export { topographies, getCurTopography, getCurObjects, getGalleryItem, getSubtitle, getName, getIndex };
