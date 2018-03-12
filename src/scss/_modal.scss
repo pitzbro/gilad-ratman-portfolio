@@ -12,10 +12,10 @@
     cursor: pointer;
 
     &.cross-hair {
-        cursor: crosshair;
-        &.not-allowed {
-            cursor: not-allowed;
-        }
+        // cursor: crosshair;
+        // &.not-allowed {
+        //     cursor: not-allowed;
+        // }
     }
     .modal {
         position: relative;
@@ -91,7 +91,7 @@
                 height: 0;
                 overflow: hidden;
                 position: relative;
-                cursor: crosshair;
+                cursor: none;
 
                 &.end {
                     cursor: not-allowed;

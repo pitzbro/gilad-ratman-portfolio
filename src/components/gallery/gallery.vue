@@ -68,10 +68,19 @@
         if (this.type === 'images') {
           bus.$emit('nextImage');
         }
+      },
+      keyPressed(e) {
+        var keyCode = e.keyCode;
+        if (keyCode === 27) {
+          this.$router.push(`/project/${this.alias}`);
+        }
       }
     },
 
     mounted() {
+      
+      window.addEventListener('keyup', this.keyPressed);
+
       this.alias = this.$route.params.alias;
       this.num = this.$route.params.num;
 
@@ -92,6 +101,10 @@
       bus.$on('galleryEndChange', (galleryEnd)=> {
         this.galleryEnd = galleryEnd;
       })
+    },
+
+    destroyed() {
+      window.removeEventListener("keyup", this.keyPressed);
     },
 
     computed: {
