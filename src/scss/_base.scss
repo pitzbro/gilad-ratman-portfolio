@@ -53,6 +53,10 @@ pre {
 a { 
     color: $mainColor; 
     text-decoration: none;
+    &:focus {
+        outline: none;
+        text-decoration: underline;
+    }
 }
 
 button {

@@ -135,6 +135,7 @@ const topographies = [
             },
             { type: 'text',
               textSources: [
+                 { languages: ['english', 'hebrew']},
                  { languages: ['english', 'hebrew']}
                  ]},
             { type: 'audio' }
