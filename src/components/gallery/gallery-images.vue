@@ -135,12 +135,14 @@
 
   .hover-text {
     position: fixed;
-    font-family: "Assistant", sans-serif;
+    // font-family: "Assistant", sans-serif;
+    font-family: 'Secular One', sans-serif;
+    
     color: #fff;
     text-transform: uppercase;
     font-weight: normal;
     font-size: 15px;
-    font-size: 40px;
+    font-size: 30px;
     letter-spacing: 0.2rem;
     text-shadow: 1px 1px black;
   }
