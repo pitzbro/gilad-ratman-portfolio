@@ -5,7 +5,7 @@ const topographies = [
         subtitle: 'Two channel video installation, 8 min, 2009',
 
         menuObjects: [
-            { type: 'video', videos: [{ id: 255742324, aspectRatio: '25.6%'}] },
+            { type: 'video', videos: [{ id: 255742324, aspectRatio: '25.6%', caption: '"The 588 Project" - Split screen'}] },
             { type: 'images', num: 12, 
               captions: [
                 'Black Mud, Digital collage, 2009',
@@ -57,12 +57,13 @@ const topographies = [
     },
 
     {
-        name: 'Multipillory',
+        name: 'The Multipillory',
         alias: 'multipillory',
         subtitle: 'video installation, endless loop, wooden structure, 2010',
 
         menuObjects: [
-            { type: 'video', videos: [{ id: 255713168, aspectRatio: '72.1%' }, { id: 139198986, aspectRatio: '53.1%' }]  },
+            { type: 'video', videos: [{ id: 255713168, aspectRatio: '72.1%', caption: '"The Multipillory" - Video Excerpt' }, 
+            { id: 139198986, aspectRatio: '53.1%' }]  },
             { type: 'images', num: 13,
               captions: [
                 'Multipillory production set',
@@ -117,7 +118,8 @@ const topographies = [
         subtitle: 'two channel video installation, soundroom, 12 min, 2011-2015',
 
         menuObjects: [
-            { type: 'video',  videos: [{ id: 255795288, aspectRatio: '53.1%'  }, { id: 139391999, aspectRatio: '53.1%' }] },
+            { type: 'video',  videos: [{ id: 255795288, aspectRatio: '53.1%', caption: '"Five Bands from Romania" - Edited version - single channel' }, 
+            { id: 139391999, aspectRatio: '53.1%' }] },
             { type: 'images', num: 11,
             captions: [
                 'Still from Five Bands from Romania',
@@ -170,7 +172,8 @@ const topographies = [
         subtitle: 'multi channel video installation, 4 min, styrofoam screens, 2015',
 
         menuObjects: [
-            { type: 'video', videos: [{ id: 255751128, aspectRatio: '53.1%'  }, { id: 138648203, aspectRatio: '53.1%'  }] },
+            { type: 'video', videos: [{ id: 255751128, aspectRatio: '53.1%', caption: '"Swarm" - Split screen version - Four out of five video channels' }, 
+            { id: 138648203, aspectRatio: '53.1%'  }] },
             { type: 'images', num: 11,
             captions: [
                 'Locust swarming',

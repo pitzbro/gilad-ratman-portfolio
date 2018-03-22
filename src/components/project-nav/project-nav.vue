@@ -26,14 +26,26 @@
       </button>
 
     <transition name="fade">
-      <section v-if="credits" class="credits-wrapper" @click.stop="toggleCredits">
-        <div class="credits" @click.stop>
-          <p><img src="/static/img/logos/hapais-logo-white-long.png"/></p>
-          <p>The catalog was produced with the support of the <strong>Israel Lottery Council For Culture & Arts</strong></p>
-          <p>Site by <a href="http://asioren.co.il/" target="_blank"><strong>Asi Oren</strong></a></p>
-          <p>3D Modeling <strong>David Chaki</strong></p>
-          <p>Advisor <strong>Nir Harel</strong></p>
-          <p>Array and textureless GLSL 3D simplex noise function by <strong>Ian McEwan, Ashima Arts</strong></p>
+      <section v-if="credits" class="credits-wrapper flex" @click.stop="toggleCredits">
+        <div class="credits-container flex space-around">
+          <div class="credits eng" dir="ltr" @click.stop>
+            <p><img src="/static/img/logos/hapais-logo-white-long.png"/></p>
+            <p>The catalog was produced with the support of the <br><strong>Israel Lottery Council For Culture & Arts</strong></p>
+            <p>Site by <a href="http://asioren.co.il/" target="_blank"><strong>Asi Oren</strong></a></p>
+            <p>3D Modeling <strong>David Chaki</strong></p>
+            <p>Advisor <strong>Nir Harel</strong></p>
+            <p>Editing & Proof Reading <strong>Noa Shuval</strong></p>
+            <p>Array and textureless GLSL 3D simplex noise function by <br><strong>Ian McEwan, Ashima Arts</strong></p>
+          </div>
+          <div class="credits heb" dir="rtl" @click.stop>
+            <p><img src="/static/img/logos/hapais-logo-white-long-heb.png"/></p>
+            <p>הקטלוג יצא לאור בסיוע <br><strong>מועצת הפיס לתרבות ולאמנות</strong></p>
+            <p>אתר <a href="http://asioren.co.il/" target="_blank"><strong>אסי אורן</strong></a></p>
+            <p>הדמיות תלת מימד <strong>דויד חאקי</strong></p>
+            <p>יעוץ <strong>ניר הראל</strong></p>
+            <p>עריכה והגהה <strong>נועה שובל</strong></p>
+            <!-- <p>Array and textureless GLSL 3D simplex noise function by <br><strong>Ian McEwan, Ashima Arts</strong></p> -->
+          </div>
         </div>
       </section>
     </transition>

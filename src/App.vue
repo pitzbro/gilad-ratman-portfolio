@@ -83,6 +83,7 @@ export default {
       this.alias = this.$route.params.alias;
       if (this.alias) {
         this.subtitle = getSubtitle(this.alias);
+        this.name = getName(this.alias);
       } else {
         this.isLoaded = false;
       }

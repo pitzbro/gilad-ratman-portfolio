@@ -21,6 +21,8 @@
 
   </div>
 
+  <div class="caption">{{currCaption}}</div>
+
 </div>
 
 </template>
@@ -34,6 +36,7 @@
       return {
         videoId: null,
         aspectRatio: null,
+        currCaption: '',
         currVideo: 0
       }
     },
@@ -56,6 +59,7 @@
       changeVideoSrc() {
         console.log('changing src to num:', this.currVideo)
         this.videoId = this.videos[this.currVideo].id;
+        this.currCaption = this.videos[this.currVideo].caption;
         this.aspectRatio = this.videos[this.currVideo].aspectRatio; 
       }
     },
@@ -87,6 +91,7 @@
     mounted() {
       if (this.videos && this.videos.length) {
         this.changeVideoSrc()
+        // this.changeVideoCaption()
       }
     }
 }

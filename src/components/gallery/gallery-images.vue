@@ -18,12 +18,12 @@
 
     <div @mousemove="followCursor" class="full-pager flex"> 
       <div class="full-pager-prev prev" 
-           @mouseover="hoverText = '- Less'"  
+           @mouseover="hoverText = '-'"  
            @mouseout="hoverText = ''"
            :class="{ inactive: !currImage }"
            @click.stop="prevImage"></div>
       <div class="full-pager-next next" 
-           @mouseover="hoverText = '+ More'"  
+           @mouseover="hoverText = '+'"  
            @mouseout="hoverText = ''"
            :class="{ inactive: galleryEnd }"
            @click.stop="nextImage"></div>
@@ -130,6 +130,7 @@
 
   .caption {
     text-align: end;
+    padding-top: 10px;
   }
 
   .hover-text {
@@ -139,6 +140,7 @@
     text-transform: uppercase;
     font-weight: normal;
     font-size: 15px;
+    font-size: 40px;
     letter-spacing: 0.2rem;
     text-shadow: 1px 1px black;
   }
@@ -150,6 +152,7 @@
     width: 100%;
     height: 100%;
     z-index: 100;
+    
     cursor: none;
     .prev {
       width: 50%;

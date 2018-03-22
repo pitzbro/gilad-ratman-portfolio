@@ -6,7 +6,7 @@
 
   <div class="caption">Lead singers from five heavy metal bands - mixed audio</div>
 
-  <audio ref="audioEl" @volumechange="muteChange" @playing="togglePlay" autoplay loop>
+  <audio ref="audioEl" @volumechange="muteChange" @playing="togglePlay" loop>
     <source :src="`${projectFolder}audio/audio.mp3`" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
@@ -17,7 +17,7 @@
   </p>
 
   <!-- <img v-show="playing && !muted" src="/static/img/eqalizer.gif" class="audio-equalizer"/> -->
-  <img :style="{ visibility: visibilityEQ }" src="/static/img/eqalizer.gif" class="audio-equalizer"/>
+  <img :style="{ visibility: visibilityEQ }" :src="`/static/img/eqalizer-${playing}.gif`" class="audio-equalizer"/>
 
 
 
@@ -49,9 +49,15 @@
     },
     computed: {
       visibilityEQ() {
-        if (this.playing && !this.muted) return 'visible'
+        if (!this.muted) return 'visible'
         else return 'hidden'
       }
+    },
+
+    mounted() {
+      setTimeout(() => {
+        this.$refs.audioEl.play();
+      }, 2000);
     }
 }
 </script>

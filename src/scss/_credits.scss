@@ -6,13 +6,20 @@
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    // flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    text-align: center;
+    text-align: start;
     cursor: pointer;
+
+    .credits-container {
+        max-width: 800px;
+        justify-content: space-between;
+    }
     .credits {
+        // max-width: 40%;
         cursor: default;
+        padding: 65px;
     }
 }
 
