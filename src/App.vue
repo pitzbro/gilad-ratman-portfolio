@@ -1,6 +1,12 @@
 <template>
   <div id="app">
 
+    <div class="narrow-msg">
+      <img src="/static/projects/multipillory/objects/2.gif" class="audio-object"/>
+      <h2>TOO NARROW!</h2>
+      <p>This app requires a minimum 840 X 600 pixel resolution</p>
+    </div>
+
     <transition name="fade">
 
       <header v-if="!credits">

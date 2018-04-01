@@ -1,0 +1,46 @@
+
+$narrow-width-breakpoint: 840px;
+$narrow-height-breakpoint: 600px;
+
+/* Breakpoint mixins */
+
+@mixin for-narrow-layout {
+  @media (max-width: $narrow-width-breakpoint), (max-height: $narrow-height-breakpoint) {
+    @content;
+  }
+}
+
+/* Size mixins */
+
+@function rem($size) {
+  $remSize: $size / 16px;
+  @return ($remSize) * 1rem;
+}
+
+@function em($pixels, $context: 16px) {
+  @return ($pixels/$context) * 1em;
+}
+
+.narrow-msg {
+
+  display: none;
+
+  @include for-narrow-layout {    
+    position: fixed;
+    z-index: 2000;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.9);
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
